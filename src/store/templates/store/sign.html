@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <title>Sign up & Log in</title>
+    <link rel="stylesheet" href="{% static 'css/sign.css' %}"
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="main-content">
+                <form action="" class="form1 forms">
+                    <h2 class="title">Login</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <div class="forgot">
+                        <a href="#">Forgot password?</a>
+                    </div>
+                    <input type="submit" value="Login" class="btn solid">
+
+                    <p class="social-text">Or sign in with social platform</p>
+            
+                </form>
+
+                <form action="" class="form2 forms">
+                    <h2 class="title">Sign Up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" placeholder="Email">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <input type="submit" value="Sign up" class="btn solid">
+
+                    <p class="social-text">Or sign in with social platform</p>
+            
+                </form>
+            </div>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Join Here</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, voluptates quas impedit a est dolores facilis dolore distinctio quibusdam debitis pariatur hic! Tempore inventore, delectus molestiae consequuntur ullam dolorem rerum?</p>
+                    <button class="btn transparent" id="panel-btn1">Sign up</button>
+                </div>
+                <img src="assets/signup.svg" alt="" class="image">
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Already have an account?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, voluptates quas impedit a est dolores facilis dolore distinctio quibusdam debitis pariatur hic! Tempore inventore, delectus molestiae consequuntur ullam dolorem rerum?</p>
+                    <button class="btn transparent" id="panel-btn2">Login</button>
+                </div>
+                <img src="assets/cart.svg" alt="" class="image">
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/form.js' %}"></script>
+
+    
+</body>
+</html>

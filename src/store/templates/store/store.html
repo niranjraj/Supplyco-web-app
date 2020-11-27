@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+ <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="body-container" >
+        <div class="header-wrapper">
+            <header >
+                <div class="nav-logo">
+                   <h1 class="logo">Supplyco</h1>
+                </div>
+                <nav class="drawer">
+                    <ul class="nav-list">
+                        <li><a href="">Home</a></li>
+                        <li><a href="#">Purchase</a></li>
+                        <li><a href="help/">Help</a></li>
+                        <li>
+                            <div class="menu-btn">
+                                <a href="sign/" class="login-btn">Login</a>
+                            
+                            </div>  
+                        </li>  
+                    </ul>
+                </nav>
+                <div class="nav-btn">
+                    <div class="nav-btn_burger"></div>
+                </div>
+            </header>
+            <section class="carousel-container">
+                <div class="slides">
+                    <input type="radio" name="radio-btn" id="radio1" checked>
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+                    <div class="carousel slide-1">
+                        <div class="text-box">
+                            <h2>Supplyco</h2>
+                            <p>The Kerala State Civil Supplies Corporation, popularly knows as 'Supplyco', is a fully-owned Government of Kerala undertaking established in 1974. The State has been able to control prices of food commodities, thanks to the strong market intervention undertaken by Supplyco. With its support network of 1600 retail outlets, Supplyco leaves little scope for cartelization or artificial jacking up of prices and keeps the private retailing under check. Today around 15 million people are dependent on retail stores of Supplyco for their day-to-day needs of food grains, pulses and spices</p>
+                        </div>
+                    </div>
+                    <div class="carousel slide-2">
+                        <div class="text-box">
+                            <h2>Supplyco</h2>
+                            <p>Supplyco entered the branded curry powder market by launching the Sabari range of curry powders in 1997. Original Indian spices are blended in required proportions to give Sabari branded products a distinct taste. </p>
+                        </div>
+                        <img class="slide-img1"src="{% static 'images/products.png' %}" alt="">
+                    </div>
+                    <div class="carousel slide-3">
+                        <div class="text-box">
+                            <h2>Supplyco</h2>
+                            <p>Latest covid medical products available</p>
+                        </div>
+                        <img class="slide-img2" src="{% static 'images/slide-imga2.png' %} alt="">
+                    </div>
+                    <div class="carousel slide-4">
+                        <div class="text-box">
+                            <h2>Supplyco</h2>
+                            <p></p>
+                        </div>
+                        <img class="slide-img3" src="{% static 'images/slide-imga5.png' %}" alt="">
+                    </div>  
+                </div>
+            </section>
+        </div>
+        <div class="primary-divider">
+            <svg viewBox="0 0 500 500" 
+            preserveAspectRatio="xMinYMin meet"> 
+              
+            <path d="M0, 50 C200, 150 350, 
+                0 500, 50 L500, 00 L0, 0 Z" 
+                style="stroke:none; fill:url('#myGradient')"> 
+            </path> 
+            <defs>
+                <linearGradient id="myGradient" gradientTransform="rotate(0)">
+                  <stop offset="0%"  stop-color="#7663D1" />
+                  <stop offset="100%" stop-color="#7A77FC" />
+                </linearGradient>
+              </defs>
+        </svg> 
+        </div>
+        <div class="container"> 
+            <section class="categories">
+                <div class="card-text">
+                    <h2>What we provide</h2>
+                </div>
+                <div class="col">
+                    <div class="card card-1" >
+                        <h3>Our Products</h3>
+                        <p>Tea, Coffee, Atta, Chilly Powder etc.</p>
+                    </div>
+                    <div class="card card-2 ">
+                        <h3>Price List</h3>
+                        <p>Latest Price list.</p>
+                    </div>
+                    <div class="card card-3">
+                        <h3>Paddy Procurement</h3>
+                        <p>www.Supplycopaddy.in.</p>
+                    </div>
+                    <div class="card card-4">
+                        <h3>Careers</h3>
+                        <p>Details about careers and job opportunities in Supplyco.</p>
+                    </div>
+                </div>
+            </section>
+    
+            <sectio class="info-card" >
+                <div class="info">   
+                    <h3>Chairman and Managing Director's Message</h3>  
+                    <div class="info-img">
+                        <img src="{% static 'images/cmd6.jpg' %}" alt="">
+                    </div>
+                    <p>Ali Asgar Pasha P M IAS</p>
+                    <p>Chairman and Managing Director</p>
+                    <p>0484-2206776, cmd@supplycomail.com</p>
+                </div>
+                <div class="content">
+                    <h3>The Kerala State Civil Supplies Corporation.</h3>
+                    <ul>
+                        <li>Retailing of life's essentials at subsidised price</li>
+                        <li>Retailing of packed Consumer Goods</li>
+                        <li>Blending and packing of Tea & Coffee(Sabari)</li>
+                        <li>Milling and packing of wheat Flour(Fortified Atta)</li>
+                        <li>Retailing of Petroleum Products</li>
+                        <li>Retailing of Medical Drugs</li>
+                        <li>Wholesale distribution to Public Distribution System</li>
+                        <li>Distribution of food articles for School Midday meal scheme</li>
+                        <li>Festival Markets / Fairs during Onam, Christmas and Ramzan.</li>
+                    </ul>
+                </div>
+            </section>
+          
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="social-icons">
+                    <ul>
+                        <li>
+                            <div class="social-btn">
+                                <div class="icon"><i class="fab fa-facebook-f"></i></div>
+                                <span>Facebook</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="social-btn">
+                                <div class="icon"><i class="fab fa-instagram"></i></div>
+                                <span>Instagram</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="social-btn">
+                                <div class="icon"><i class="fab fa-twitter"></i></div>
+                                <span>Twitter</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-us">
+                    <h3>Contact us</h3>
+                    <ul>
+                        <li>The Kerala State Civil Supplies Corporation Ltd</li>
+                        <li>Maveli Road, Gandhi Nagar, Kochi-682 020</li>
+                        <li>Phone :0484 2206775, 2206795</li>
+                        <li>E-Mail:info@supplycomail.com,Website:www.supplycokerala.com</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/observer.js' %}"></script>
+    <script src="{% static 'js/button.js' %}"></script>
+</body>
+</html>

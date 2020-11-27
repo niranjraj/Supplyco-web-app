@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <title>Help me</title>
+    <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="main-content">
+                <form action="" class="form1 forms">
+                    <h2 class="title">Help me</h2>
+                    <div class="input-field ">  
+                        <i class="fas fa-user"></i> 
+                        <input type="text" placeholder="Name">
+                    </div>
+                    <div class="input-field ">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div class="input-field ">
+                        <i class="fas fa-phone-alt"></i>
+                        <input type="tel" placeholder="Phone Number">
+                    </div>
+                    <div class="input-field ">
+                        <i class="fas fa-question"></i>
+                        <input type="text" placeholder="Ask a Question">
+                    </div>
+                    <div class="input-field  text-input">
+                        <i class="fas fa-edit"></i>
+                       <textarea placeholder="Description" cols="30" rows="10"></textarea>
+                    </div>
+                    <input type="submit" value="help" class="btn solid">
+                    <p class="info-text">give more info</p>
+                </form>
+
+                <div class="form2 forms">
+                    <h2 class="title">Contact us</h2>
+                    <div class="contact-info">
+                        <div class="content">
+                            <h3>The Kerala State Civil Supplies Corporation.</h3>
+                            <ul>
+                                <li>The Kerala State Civil Supplies Corporation Ltd</li>
+                                <li>Maveli Road, Gandhi Nagar, Kochi-682 020</li>
+                                <li>Phone :0484 2206775, 2206795</li>
+                                <li>E-Mail:info@supplycomail.com,Website:www.supplycokerala.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Join Here</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, voluptates quas impedit a est dolores facilis dolore distinctio quibusdam debitis pariatur hic! Tempore inventore, delectus molestiae consequuntur ullam dolorem rerum?</p>
+                    <button class="btn transparent" id="panel-btn1">Contact us</button>
+                </div>
+                <img src="assets/question.svg" alt="" class="image">
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Need Help?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, voluptates quas impedit a est dolores facilis dolore distinctio quibusdam debitis pariatur hic! Tempore inventore, delectus molestiae consequuntur ullam dolorem rerum?</p>
+                    <button class="btn transparent" id="panel-btn2">Help me</button>
+                </div>
+                <img src="assets/forgot.svg" alt="" class="image">
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/form.js' %}"></script>
+    <script src="{% static 'js/textarea.js' %}"></script>
+  
+    
+</body>
+</html>

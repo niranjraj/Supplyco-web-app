@@ -9,9 +9,7 @@ def help(request):
     context={}
     return render(request,'store/help.html',context)   
 
-def sign(request):
-    context={}
-    return render(request,'store/sign.html',context)
+
 
 
 

@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django import forms
+from store.models import Customer
 from django.contrib.auth import get_user_model
 
 
@@ -59,6 +60,14 @@ class SignUpForm(forms.ModelForm):
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError("Passwords don't match")
         return password2
+
+    def clean_aadhaar(self):
+        data=self.cleaned_data.get("aadhaar")
+        checkingData=Customer.objects.filter(aadhaar__contains=data)
+        if not checkingData:
+            raise forms.ValidationError("Passwords don't match")
+        return data
+
 
     def save(self, commit=True):
         user = super(SignUpForm, self).save(commit=False)

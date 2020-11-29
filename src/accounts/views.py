@@ -16,12 +16,12 @@ def sign(request):
             return redirect('sign')
     elif request.POST.get('Login'):
         if form2.is_valid():
-            email=form.cleaned_data.get("email")
-            password=form.cleaned_data.get("password") 
-            user= authenticate(request,email=email,password=password)
+            email=form2.cleaned_data.get("email")
+            password=form2.cleaned_data.get("password") 
+            user= authenticate(request,username=email,password=password)
             if user is not None:
                 login(request,user)
-                return redirect('home')
+                return redirect('products')
             else:
                 return redirect('sign')    
             

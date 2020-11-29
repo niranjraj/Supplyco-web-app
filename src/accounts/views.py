@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from .forms import SignUpForm,LoginForm
 from  django.contrib import messages
 from django.contrib.auth import authenticate, login
-
+from store.models import Customer
 
 
 # Create your views here.
@@ -13,6 +13,8 @@ def sign(request):
     if request.POST.get('SignUp'):
         if form.is_valid():
             form.save()
+         
+
             return redirect('sign')
     elif request.POST.get('Login'):
         if form2.is_valid():

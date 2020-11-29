@@ -74,4 +74,9 @@ class SignUpForm(forms.ModelForm):
         user.set_password(self.cleaned_data["password1"])
         if commit:
             user.save()
+            data=self.cleaned_data.get("aadhaar")
+            checkingData=Customer.objects.filter(aadhaar__contains=data)
+            if checkingData:
+                   checkingData.update(user_id=user.id)
+
         return user

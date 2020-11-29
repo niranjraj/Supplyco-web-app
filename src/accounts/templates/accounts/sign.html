@@ -12,40 +12,48 @@
     <div class="container">
         <div class="forms-container">
             <div class="main-content">
-                <form action="" class="form1 forms">
+                <form action="" method="POST" class="form1 forms">
+                    {% csrf_token %}  
                     <h2 class="title">Login</h2>
                     <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username">
+                        <i class="fas fa-envelope"></i>
+                       {{form2.email}}
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password">
+                        {{form2.password}}
                     </div>
                     <div class="forgot">
                         <a href="#">Forgot password?</a>
                     </div>
-                    <input type="submit" value="Login" class="btn solid">
+                    <input type="submit" name="Login" value="Log-in" class="btn solid">
 
                     <p class="social-text">Or sign in with social platform</p>
             
                 </form>
 
-                <form action="" class="form2 forms">
+                <form action="" method="POST" class="form2 forms">
+                    {% csrf_token %}
                     <h2 class="title">Sign Up</h2>
                     <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username">
+                        <i class="fas fa-envelope"></i>
+                       {{form.email}}
                     </div>
                     <div class="input-field">
-                        <i class="fas fa-envelope"></i>
-                        <input type="text" placeholder="Email">
+                        <i class="fas fa-user"></i>
+                        {{form.aadhaar}}
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password">
+                        {{form.password1}}
                     </div>
-                    <input type="submit" value="Sign up" class="btn solid">
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        {{form.password2}}
+                    </div>
+
+                    {{form.errors}}
+                    <input type="submit" name="SignUp" value="Sign-up" class="btn solid">
 
                     <p class="social-text">Or sign in with social platform</p>
             

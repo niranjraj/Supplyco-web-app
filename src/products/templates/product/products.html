@@ -70,14 +70,14 @@
                 <div class="profile-bg">
                     <div class="profile-avatar">
                        <span class="avatar">
-                           <img src="assets/avatar.png" alt="avatar">
+                           <img src="{{user.customer.imageURL}}"  alt="avatar">
                        </span>
                     </div>
                     <div class="profile-details">
                         <button class="edit-btn">Edit</button>
                         <div class="bio">
                             <h2>{{user.customer.name}}</h2>
-                            <p>Athar number</p>
+                            <p>Athar number:{{user.aadhaar}}</p>
                         </div>
                     </div>
                 </div>

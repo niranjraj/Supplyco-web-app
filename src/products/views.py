@@ -2,17 +2,29 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+
 from django.http import JsonResponse
 from django.core import serializers
 import datetime
 from django.contrib import auth
 from .models import *
 import json
+
+
+
 # Create your views here.
 
 @login_required(login_url='sign')
 def products(request):
-    productItems= Product.objects.filter(active=True)
+    productItems= Product.objects.all()
+    for product in productItems:
+        if product.quantity <=0:
+            product.active=False
+            product.save()
+        else:
+            product.active=True
+            product.save()    
+    productItems=Product.objects.filter(active=True)
     customer=request.user
     order,created=Order.objects.get_or_create(user=customer,complete=False)
     items=order.orderitem_set.all()
@@ -38,6 +50,24 @@ def checkOut(request):
     order,created=Order.objects.get_or_create(user=customer,complete=False)
     items=order.orderitem_set.all()
     cartItems=order.get_cart_items
+
+    for item in items:
+        overflowItem=item.product.quantity-item.quantity
+        if overflowItem>= 0:
+            item.product.quantity=overflowItem
+            item.product.save()
+            item.save()
+        else:
+            item.quantity=item.quantity+overflowItem
+            item.product.save()
+            item.save()
+            return redirect('checkOut')
+              
+        item.product.save()
+        item.save()
+    order,created=Order.objects.get_or_create(user=customer,complete=False)
+    items=order.orderitem_set.all()
+    cartItems=order.get_cart_items     
     context={'items':items,'order':order,'cartItems':cartItems}
     return render(request,'product/checkout.html',context)
 
@@ -50,14 +80,17 @@ def updateItem(request):
     product = Product.objects.get(id=productId)
     order, created = Order.objects.get_or_create(user=customer, complete=False)
     orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
-
-    if action == 'add':
-	    orderItem.quantity = (orderItem.quantity + 1)
-    elif action == 'remove':
-	    orderItem.quantity = (orderItem.quantity - 1)
-
+    
+    print(product.quantity)
+    if action =='add':
+        maxCartItem=product.quantity-orderItem.quantity
+        if maxCartItem>0:
+            orderItem.quantity=(orderItem.quantity+1)
+    elif action =='remove':
+        orderItem.quantity=(orderItem.quantity-1)
+        
     orderItem.save()
-
+   
     if orderItem.quantity <= 0:
 	    orderItem.delete()
     cartItems=order.get_cart_items
@@ -69,23 +102,25 @@ def updateItem(request):
 
 
 def processOrder(request):
-    data=json.loads(request.body)
-    transaction_id=datetime.datetime.now().timestamp()
-    customer=request.user
-    order, created = Order.objects.get_or_create(user=customer, complete=False)
-    print(data['total'])
-    total=float(data['total'])
+        data=json.loads(request.body)
+        transactionid=datetime.datetime.now().timestamp()
+        customer=request.user
+        order, created = Order.objects.get_or_create(user=customer, complete=False)
+        items=order.orderitem_set.all()
+        order.transaction_id=transactionid
 
-    print(total)
-    order.transaction_id=transaction_id
+        
+        total=float(data['total'])
+       
 
-    #checking the carttotal with backend to avoid manipulation 
+        #checking the carttotal with backend to avoid manipulation
+        if total== order.get_cart_total:   
+            order.complete=True
+        else:
+            redirect('checkOut')
+        order.save()
 
-    if total== order.get_cart_total:
-        order.complete=True
-    order.save()
-
-    ShippingAddress.objects.create(
+        ShippingAddress.objects.create(
         user=customer,
         order=order,
         address=data["shipping"]["address"],
@@ -93,5 +128,10 @@ def processOrder(request):
         zipcode=data["shipping"]["zipcode"],
         phoneNumber=data["shipping"]["phoneNumber"],
         )
+    
         
-    return JsonResponse("payment complete",safe=False)
+        return JsonResponse("payment complete",safe=False)
+
+
+
+

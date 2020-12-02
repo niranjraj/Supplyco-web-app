@@ -64,3 +64,16 @@ class OrderItem(models.Model):
     def get_total(self):
 	    total = self.product.price * self.quantity
 	    return total
+
+
+class ShippingAddress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
+    address=models.CharField(max_length=200,null=True)
+    city=models.CharField(max_length=200,null=True)
+    zipcode=models.CharField(max_length=200,null=True)
+    phoneNumber=models.CharField(blank=True,max_length=10)
+    date_added=models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+	    return self.address

@@ -19,7 +19,7 @@
                         <h4>Cart Total Price: ₹<span class="cart-total">{{order.get_cart_total}}</span></h4>
                         <h4>Cart Total Items:<span class='cart-number'>{{order.get_cart_items}}</span></h4>
                     </div>
-                    <a href="" class="btn btn-nav"> Go to Checkout &#x2192;</a>
+                    <a href="{% url 'checkOut' %}" class="btn btn-nav"> Go to Checkout &#x2192;</a>
                 </div>
                 <div class="cart-content">
                     {% for item in items %}

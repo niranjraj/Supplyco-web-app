@@ -28,7 +28,7 @@ $(document).ready(function () {
     });
 
     function updateUserOrder(productId,action){
-            var url='update_item/'
+           
 
             $.ajax({
                 type: "POST",

@@ -10,7 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
- <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+<script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
     <title>Document</title>
 </head>
 <body>
@@ -38,39 +39,15 @@
                 </div>
             </header>
             <section class="carousel-container">
-                <div class="slides">
-                    <input type="radio" name="radio-btn" id="radio1" checked>
-                    <input type="radio" name="radio-btn" id="radio2">
-                    <input type="radio" name="radio-btn" id="radio3">
-                    <input type="radio" name="radio-btn" id="radio4">
-                    <div class="carousel slide-1">
-                        <div class="text-box">
-                            <h2>Supplyco</h2>
-                            <p>The Kerala State Civil Supplies Corporation, popularly knows as 'Supplyco', is a fully-owned Government of Kerala undertaking established in 1974. The State has been able to control prices of food commodities, thanks to the strong market intervention undertaken by Supplyco. With its support network of 1600 retail outlets, Supplyco leaves little scope for cartelization or artificial jacking up of prices and keeps the private retailing under check. Today around 15 million people are dependent on retail stores of Supplyco for their day-to-day needs of food grains, pulses and spices</p>
-                        </div>
+                   <div class="hero">
+                    <div  class="hero-left">
+                        <h1>Supplyco Online Store</h1>
+                        <p>Everywhere you need us to be.</p>
                     </div>
-                    <div class="carousel slide-2">
-                        <div class="text-box">
-                            <h2>Supplyco</h2>
-                            <p>Supplyco entered the branded curry powder market by launching the Sabari range of curry powders in 1997. Original Indian spices are blended in required proportions to give Sabari branded products a distinct taste. </p>
-                        </div>
-                        <img class="slide-img1"src="{% static 'images/products.png' %}" alt="">
+                    <div class="hero-right">
+                        <img class="hero-img"src="{% static 'images/shopping2.svg' %}" alt="">
                     </div>
-                    <div class="carousel slide-3">
-                        <div class="text-box">
-                            <h2>Supplyco</h2>
-                            <p>Latest covid medical products available</p>
-                        </div>
-                        <img class="slide-img2" src="{% static 'images/slide-imga2.png' %} alt="">
-                    </div>
-                    <div class="carousel slide-4">
-                        <div class="text-box">
-                            <h2>Supplyco</h2>
-                            <p></p>
-                        </div>
-                        <img class="slide-img3" src="{% static 'images/slide-imga5.png' %}" alt="">
-                    </div>  
-                </div>
+                   </div>
             </section>
         </div>
         <div class="primary-divider">
@@ -114,29 +91,23 @@
                 </div>
             </section>
     
-            <sectio class="info-card" >
-                <div class="info">   
-                    <h3>Chairman and Managing Director's Message</h3>  
-                    <div class="info-img">
-                        <img src="{% static 'images/cmd6.jpg' %}" alt="">
+            <section class="info-card" >
+                <div class="info"> 
+                    <div class="detail-info-1">
+                        <div class="info-img-wrapper">
+                            <img class="info-img" src="{% static 'images/cmd6.jpg' %}" alt="chairman">
+                        </div>  
+                        <div class="details">
+                            <h3>Chairman and Managing Director's Message</h3>
+                            <ul>
+                                <li>Ali Asgar Pasha P M IAS</li>
+                                <li>Chairman and Managing Director</li>
+                                <li>0484-2206776, cmd@supplycomail.com</li>
+                            </ul>
+                        </div>
                     </div>
-                    <p>Ali Asgar Pasha P M IAS</p>
-                    <p>Chairman and Managing Director</p>
-                    <p>0484-2206776, cmd@supplycomail.com</p>
-                </div>
-                <div class="content">
-                    <h3>The Kerala State Civil Supplies Corporation.</h3>
-                    <ul>
-                        <li>Retailing of life's essentials at subsidised price</li>
-                        <li>Retailing of packed Consumer Goods</li>
-                        <li>Blending and packing of Tea & Coffee(Sabari)</li>
-                        <li>Milling and packing of wheat Flour(Fortified Atta)</li>
-                        <li>Retailing of Petroleum Products</li>
-                        <li>Retailing of Medical Drugs</li>
-                        <li>Wholesale distribution to Public Distribution System</li>
-                        <li>Distribution of food articles for School Midday meal scheme</li>
-                        <li>Festival Markets / Fairs during Onam, Christmas and Ramzan.</li>
-                    </ul>
+           
+                   
                 </div>
             </section>
           
@@ -180,6 +151,8 @@
     
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/observer.js' %}"></script>
-    <script src="{% static 'js/button.js' %}"></script>
+   
+
+
 </body>
 </html>

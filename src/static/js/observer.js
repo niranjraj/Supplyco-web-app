@@ -40,3 +40,4 @@ const appearOnScroll= new IntersectionObserver(function(entries,appearOnScroll){
 sliders.forEach(slider =>{
     appearOnScroll.observe(slider);
 })
+

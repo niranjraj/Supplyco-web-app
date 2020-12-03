@@ -9,6 +9,7 @@
     --footer-icon: rgb(118,99,209);
     --dark-clr:#3e1f47  ;
     --text-clr:#444;
+    --background-clr:#EEECED;
     --light-accent:rgb(211,211,211);
 
 }
@@ -38,6 +39,7 @@ body{
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     overflow: auto; 
+    background-color:var(--background-clr);
     position: relative;
     
    
@@ -191,68 +193,19 @@ img{
    
 }
 
+
 .carousel-container{
     overflow: hidden;
-    position: static;
+    
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     padding-top:2em;
-    height: 70%;   
+    
+    min-height: 300px;   
     width: 100%;
 }
 
-.slides{
-    width: 500%;
-    height: 70%;
-    display: flex;
-   
-}
-.slides input{
-   
-    display: none;
-    
 
-}
-.carousel{
-    width: 20%;
-    padding:1em;
-    transition: all 500ms ease-in-out;
-    
-    overflow: hidden;
-    
-}
-.carousel img{
-    width:100%;
-    max-width:500px;
-
-    
-}
-.slide-img1{
-   margin-top:2em;
-}
-.slide-img2,.slide-img3{
-    margin-top:7em;
-}
-
-
-
-.text-box{
-    margin-bottom:0.5em;
-    font-size: 0.85rem;
-    color: var(--secondary-clr);
-    
-
-}
-.text-box p{
-    font-size: 0.8rem;
-    line-height: 14px;
-}
-
-.text-box h2{
-    padding: 1em;
-   
-
-}
 .col{
    display: flex;
    flex-direction: column;
@@ -296,7 +249,7 @@ img{
 
 }
 .card-2{
-    background-image:url("static/images/price.jpeg");
+    background-image:url(/static/images/price.jpeg);
     background-position: center;
     background-size: cover;
     transform: translateX(70%);
@@ -469,25 +422,7 @@ img{
 }
 
 
-#radio1:checked ~ .slide-1{
-    margin-left: 0;
-  
-}
 
-#radio2:checked ~ .slide-1{
-    margin-left: -20%;
-   
-}
-
-#radio3:checked ~ .slide-1{
-    margin-left: -40%;
-    
-}
-
-#radio4:checked ~ .slide-1{
-    margin-left: -60%;
-   
-}
 
 .sticky{
     box-shadow: 0 2px 6px  rgba(0, 0, 0, 0.16),  0 2px 6px rgba(0, 0, 0, 0.23);
@@ -547,14 +482,13 @@ img{
         margin-top:0.3em;
 
     }
-    .carousel{
-        display: flex;
-        
-    }
-    .slide-img1{
-        margin-top: 3em;
-     }
-    
+
+ 
+     
+     
+ 
+
+
      .primary-divider{
          height: 6em;
          margin-top: -5px;
@@ -583,6 +517,35 @@ img{
 
 /* laptop style */
 @media(min-width:1024px){
+
+
+    @keyframes hero {
+        0%{
+            transform:translateY(-10px);
+          
+        }
+        25%{
+            transform:translateY(-10px);
+        }
+        30%{
+            transform:translateY(-90px);
+            
+        }
+        50%{
+            transform:translateY(-90px);
+        }
+        55%{
+            transform:translateY(-180px);
+        }
+        75%{
+            transform:translateY(-180px);
+        }
+        80%,100%{
+            transform:translateY(-270px);
+        }
+    
+    
+    }
     .nav-btn{
         display: none;
     }

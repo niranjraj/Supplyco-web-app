@@ -6,19 +6,49 @@ from store.models import Customer
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth import get_user_model
+from django.contrib  import sessions
+import random
+import http.client
+import ast
 
+conn=http.client.HTTPConnection("2factor.in")
 
 User=get_user_model()
 
 # Create your views here.
 
 def sign(request):
+    User.objects.filter(active=False).delete()
     form=SignUpForm(request.POST or None)
     form2=LoginForm(request.POST or None)
     if request.POST.get('SignUp'):
         if form.is_valid():
-            form.save()
-            return redirect('sign')
+            aadhaar=form.cleaned_data['aadhaar']
+            try:
+                checkingAadhaar=Customer.objects.get(aadhaar=aadhaar)
+                
+            except Customer.DoesNotExist:
+                checkingAadhaar=False   
+            if checkingAadhaar:
+                key= send_otp()
+                old=checkingAadhaar.phoneOtp
+                if(old > 10):
+                    status="Sending Otp error"     
+                checkingAadhaar.phoneOtp=old+1
+                checkingAadhaar.save()
+                phone=checkingAadhaar.phoneNumber
+                conn.request("GET","https://2factor.in/API/V1/a8254471-352a-11eb-83d4-0200cd936042/SMS/"+str(phone)+"/"+str(key)+"/supplyco")
+                res=conn.getresponse()
+                data=res.read()
+                data=data.decode("utf-8")
+                data=ast.literal_eval(data)
+                form.save()
+                request.session['key']=key
+                request.session['aadhaar']=aadhaar
+                return redirect('otp')
+
+            
+         
     elif request.POST.get('Login'):
         if form2.is_valid():
             email=form2.cleaned_data.get("email")
@@ -33,11 +63,34 @@ def sign(request):
     context={'form':form,'form2':form2}            
     return render(request,'accounts/sign.html',context)
 
-@receiver(post_save)
-def  checkUser(sender,**kwargs):
-    if sender is User:
-        if kwargs["created"]:
-               data=kwargs["instance"].aadhaar
-               checkingData=Customer.objects.filter(aadhaar__contains=data)
-               if checkingData:
-                   checkingData.update(user_id=kwargs["instance"].id)    
+
+# @receiver(post_save)
+# def  checkUser(sender,**kwargs):
+#     if sender is User:
+#         if kwargs["created"]:
+#                data=kwargs["instance"].aadhaar
+#                checkingData=Customer.objects.filter(aadhaar__contains=data)
+#                if checkingData:
+#                    checkingData.update(user_id=kwargs["instance"].id)   
+
+def send_otp():
+    key=random.randint(1000,10000)
+    return key
+
+
+def otp(request):
+    
+    key=request.session['key']
+    aadhaar=request.session['aadhaar']
+    keyFromFront=request.body.decode('utf-8')
+    if keyFromFront == str(key):
+        user=User.objects.get(aadhaar=aadhaar)
+        customer=Customer.objects.filter(aadhaar=aadhaar)
+        customer.update(user_id=user.id)
+        user.active=True
+
+        user.save()
+        return redirect('sign')
+    context={}    
+ 
+    return render(request,'accounts/otp.html',context)

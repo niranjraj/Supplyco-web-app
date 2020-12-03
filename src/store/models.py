@@ -21,7 +21,7 @@ class Customer (models.Model):
     aadhaar=models.CharField(unique=True,validators=[validate_aadhaar],max_length=12)
     phoneNumber=models.CharField(blank=True,max_length=10)
     avatar=models.ImageField(upload_to=upload_image_path,blank=True,default='avatars/avatar.png')
-
+    phoneOtp=models.IntegerField(default=0)
 
 
     def __str__(self):

@@ -4,5 +4,6 @@ from .import views
 
 urlpatterns =[
     path('',views.sign,name="sign"),
+    path('otp',views.otp,name="otp"),
    
 ]

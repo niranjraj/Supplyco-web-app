@@ -4,6 +4,7 @@ from django.contrib.auth.models import (
 )
 from .validators import validate_aadhaar
 
+
 class UserManager(BaseUserManager):
     def create_user(self,email,aadhaar, password=None):
         if not email:
@@ -50,7 +51,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     staff = models.BooleanField(default=False) 
     admin = models.BooleanField(default=False) 
     aadhaar=models.CharField(unique=True,validators=[validate_aadhaar],max_length=12)
- 
+    
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['aadhaar'] 
@@ -67,6 +68,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     def has_module_perms(self, app_label):
         return True    
 
+ 
 
     @property
     def is_staff(self):

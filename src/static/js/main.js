@@ -19,7 +19,7 @@ navBtn.addEventListener('click',()=>{
 
 
 ScrollOut({
-    targets:'.hero-left,.hero-right',
+    targets:'.hero-left,.hero-right,.details,.detail-info-1,.info-img-wrapper',
 });
 
 window.addEventListener("scroll",function(){

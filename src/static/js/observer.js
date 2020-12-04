@@ -1,7 +1,6 @@
 const header=document.querySelector("header");
 const  headerNav= document.querySelector(".primary-divider");
 const sliders =document.querySelectorAll('.card');
-
 const headerOptions={
    
 };
@@ -40,4 +39,5 @@ const appearOnScroll= new IntersectionObserver(function(entries,appearOnScroll){
 sliders.forEach(slider =>{
     appearOnScroll.observe(slider);
 })
+
 

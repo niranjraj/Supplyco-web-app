@@ -7,8 +7,8 @@ from django.contrib.auth import get_user_model
 User=get_user_model()
 
 class UserAdminCreationForm(forms.ModelForm):
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'placeholder':'Password'}))
+    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput(attrs={'placeholder':'ConfirmPassword'}))
 
     class Meta:
         model = User
@@ -43,12 +43,14 @@ class UserAdminChangeForm(forms.ModelForm):
 
 
 class LoginForm(forms.Form):
-    email=forms.EmailField(label='Email')
-    password=forms.CharField(widget=forms.PasswordInput)
+    email=forms.EmailField(label='Email',widget=forms.EmailInput(attrs={'placeholder':'Email'}))
+    password=forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Password'}))
 
 class SignUpForm(forms.ModelForm):
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    email=forms.EmailField(label='Email',widget=forms.EmailInput(attrs={'placeholder':'Email'}))
+    aadhaar=forms.CharField(label='aadhaar',widget=forms.TextInput(attrs={'placeholder':'Aadhaar'}),max_length=12)
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'placeholder':'Password'}))
+    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput(attrs={'placeholder':'ConfirmPassword'}))
 
     class Meta:
         model = User

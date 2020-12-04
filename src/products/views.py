@@ -38,6 +38,7 @@ def logout(request):
     auth.logout(request)
     return redirect('sign')
 
+@login_required(login_url='sign')
 def cart(request):
     customer=request.user
     order,created=Order.objects.get_or_create(user=customer,complete=False)
@@ -45,6 +46,7 @@ def cart(request):
     context={'items':items,'order':order}
     return render(request,'product/cart.html',context)
 
+@login_required(login_url='sign')
 def checkOut(request):
     customer=request.user
     order,created=Order.objects.get_or_create(user=customer,complete=False)
@@ -70,7 +72,8 @@ def checkOut(request):
     cartItems=order.get_cart_items     
     context={'items':items,'order':order,'cartItems':cartItems}
     return render(request,'product/checkout.html',context)
-
+    
+@login_required(login_url='sign')
 def updateItem(request):
 
     data=json.loads(request.body)
@@ -100,7 +103,7 @@ def updateItem(request):
     
     return JsonResponse({"cartItems":cartItems,"itemQuantity":itemquantity,"cartTotal":cartTotal},safe=False)
 
-
+@login_required(login_url='sign')
 def processOrder(request):
         data=json.loads(request.body)
         transactionid=datetime.datetime.now().timestamp()

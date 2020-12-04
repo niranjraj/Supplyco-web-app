@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.http import HttpResponse, HttpResponseRedirect
 from .forms import SignUpForm,LoginForm
 from  django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -7,16 +8,19 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth import get_user_model
 from django.contrib  import sessions
+from django.views.decorators.csrf import csrf_protect
 import random
 import http.client
+import http
 import ast
+import json
 
 conn=http.client.HTTPConnection("2factor.in")
 
 User=get_user_model()
 
 # Create your views here.
-
+@csrf_protect
 def sign(request):
     User.objects.filter(active=False).delete()
     form=SignUpForm(request.POST or None)
@@ -45,8 +49,22 @@ def sign(request):
                 form.save()
                 request.session['key']=key
                 request.session['aadhaar']=aadhaar
-                return redirect('otp')
 
+                return redirect('otp')
+        else:
+            errormsg=form.errors.as_json()
+            errormsg=json.loads(errormsg)
+            for msg in errormsg:
+                print(msg)
+                if msg =="aadhaar":
+                    messages.error(request,'Invalid Aadhaar or Aadhaar already in use')
+                elif msg=="email":
+                    messages.error(request,'Invalid Email or Email already in use')
+                elif msg =="password2":
+                    messages.error(request,"Passwords don't match")     
+            return redirect('sign')
+            
+      
             
          
     elif request.POST.get('Login'):
@@ -88,9 +106,8 @@ def otp(request):
         customer=Customer.objects.filter(aadhaar=aadhaar)
         customer.update(user_id=user.id)
         user.active=True
-
         user.save()
-        return redirect('sign')
+        return redirect('')
     context={}    
  
     return render(request,'accounts/otp.html',context)

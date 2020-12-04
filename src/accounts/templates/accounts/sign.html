@@ -26,6 +26,7 @@
                     <div class="forgot">
                         <a href="#">Forgot password?</a>
                     </div>
+                    {{form2.errors}}
                     <input type="submit" name="Login" value="Log-in" class="btn solid">
 
                     <p class="social-text">Or sign in with social platform</p>
@@ -51,8 +52,12 @@
                         <i class="fas fa-lock"></i>
                         {{form.password2}}
                     </div>
+                    {% for message in messages %}
+                        <div class="error-msg">
+                            {{message}}
+                        </div>
+                       {% endfor %}   
 
-                    {{form.errors}}
                     <input type="submit" name="SignUp" value="Sign-up" class="btn solid">
 
                     <p class="social-text">Or sign in with social platform</p>
@@ -64,18 +69,18 @@
             <div class="panel left-panel">
                 <div class="content">
                     <h3>Join Here</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, voluptates quas impedit a est dolores facilis dolore distinctio quibusdam debitis pariatur hic! Tempore inventore, delectus molestiae consequuntur ullam dolorem rerum?</p>
+                    <p>Don't have an account yet? get the latest supplyco products in an instant</p>
                     <button class="btn transparent" id="panel-btn1">Sign up</button>
                 </div>
-                <img src="assets/signup.svg" alt="" class="image">
+                <img src="{% static 'images/signup.svg'%}" alt="" class="image">
             </div>
             <div class="panel right-panel">
                 <div class="content">
                     <h3>Already have an account?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, voluptates quas impedit a est dolores facilis dolore distinctio quibusdam debitis pariatur hic! Tempore inventore, delectus molestiae consequuntur ullam dolorem rerum?</p>
+                    <p>Experience shopping like never before. Login and start clicking </p>
                     <button class="btn transparent" id="panel-btn2">Login</button>
                 </div>
-                <img src="assets/cart.svg" alt="" class="image">
+                <img src="{% static 'images/cart.svg'%}"" alt="" class="image">
             </div>
         </div>
     </div>

@@ -397,7 +397,7 @@
     border-radius: 50px;
     background:#ffffff;
     cursor: pointer;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);   
     transition: all 0.3s ease-out;
     overflow: hidden;
     color:rgb(122,119,252);

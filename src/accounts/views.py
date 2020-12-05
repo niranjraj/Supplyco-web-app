@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-
+from dotenv import load_dotenv
 from django.contrib.auth.hashers import check_password
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import SignUpForm,LoginForm
@@ -19,8 +19,9 @@ import ast
 import json
 
 conn=http.client.HTTPConnection("2factor.in")
-
+load_dotenv()  
 User=get_user_model()
+API_KEY = str(os.getenv('API_KEY1'))
 
 # Create your views here.
 
@@ -79,7 +80,7 @@ def createUser(request):
                 checkingAadhaar.phoneOtp=old+1
                 checkingAadhaar.save()
                 phone=checkingAadhaar.phoneNumber
-                conn.request("GET","https://2factor.in/API/V1/a8254471-352a-11eb-83d4-0200cd936042/SMS/"+str(phone)+"/"+str(key)+"/supplyco")
+                conn.request("GET","https://2factor.in/API/V1/"+API_KEY+"/SMS/"+str(phone)+"/"+str(key)+"/supplyco")
                 res=conn.getresponse()
                 data=res.read()
                 data=data.decode("utf-8")

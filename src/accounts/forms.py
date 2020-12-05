@@ -67,10 +67,12 @@ class SignUpForm(forms.ModelForm):
         data=self.cleaned_data.get("aadhaar")
         checkingData=Customer.objects.filter(aadhaar__contains=data)
         if not checkingData:
-            raise forms.ValidationError("Passwords don't match")
+            raise forms.ValidationError("Aadhaar Invalid")
         return data
 
+  
 
+        
     def save(self, commit=True):
         user = super(SignUpForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])

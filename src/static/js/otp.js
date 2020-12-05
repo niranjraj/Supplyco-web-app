@@ -21,7 +21,6 @@ $(document).ready(function () {
     $('.otp-submit').click(function (e) { 
         e.preventDefault();
        keyvalue= $('.otp-field').val();
-       console.log(keyvalue)
        $.ajax({
            type: "POST",
            headers: { "X-CSRFToken": csrftoken },
@@ -29,7 +28,13 @@ $(document).ready(function () {
            data: keyvalue,
            dataType: "text",
            success: function (response) {
-            console.log("success")
+            var data=JSON.parse(response)
+            if( data=='true'){
+           
+                window.location.href="/"
+            }
+            
+
                
            }
        });

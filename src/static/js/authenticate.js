@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    if($('.error-msg-1').children().length>0){
+        $('.error-msg-1').addClass('slide-in');
+    }
 
     function getCookie(name) {
         let cookieValue = null;
@@ -62,17 +65,17 @@ $(document).ready(function () {
                 for (var msg in errorvalue){
             
                     if (msg=="aadhaar"){
-                        $("<div id='aadhaar-error' class='alert alert-danger '>Invalid Aadhaar or Aadhaar already in use</div>").hide().appendTo('.error-msg').show('Slow');
-                        
+                        $("<div id='aadhaar-error' class='alert alert-danger '>Invalid Aadhaar or Aadhaar already in use</div>").appendTo('.error-msg');
+                        $('.error-msg').addClass('slide-in');
                     }
                     if (msg=="email"){
-                       
-                        
-                        $("<div id='email-error' class='alert alert-danger '>Invalid Email or User already exist</div>").hide().appendTo('.error-msg').show('Slow');
+                        $("<div id='email-error' class='alert alert-danger '>Invalid Email or User already exist</div>").appendTo('.error-msg');
+                        $('.error-msg').addClass('slide-in');
                     }
                      if (msg=="password2"){
                         
-                        $("<div id='password-error' class='alert alert-danger '>Passwords don't match</div>").hide().appendTo('.error-msg').show('Slow');
+                        $("<div id='password-error' class='alert alert-danger '>Passwords don't match</div>").appendTo('.error-msg');
+                        $('.error-msg').addClass('slide-in');
                     }
                     
                 }

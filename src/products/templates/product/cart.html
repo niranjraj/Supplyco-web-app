@@ -12,31 +12,45 @@
 <body>
     <div class="container">
         <div class="main-wrapper">
+            <div class="cart-items-info">
+                <h2>Your Cart</h2>
+                <p>You have <span class='cart-number'>{{order.get_cart_items}}</span> items in your cart</p>
+            </div>  
             <div class="box-element">
                 <div class="box-nav">
-                    <a  class="btn btn-nav" href="{% url 'products' %}">&#x2190; Back to Products</a>
-                    <div class="cart-total-info">
-                        <h4>Cart Total Price: ₹<span class="cart-total">{{order.get_cart_total}}</span></h4>
-                        <h4>Cart Total Items:<span class='cart-number'>{{order.get_cart_items}}</span></h4>
-                    </div>
-                    <a href="{% url 'checkOut' %}" class="btn btn-nav"> Go to Checkout &#x2192;</a>
+                    <a  class="btn btn-nav" href="{% url 'products' %}">&#x2190; Back to Products</a>           
                 </div>
                 <div class="cart-content">
                     {% for item in items %}
                     <div data-product="{{item.product.id}}" class="cart-item">
-                        <img src="{{item.product.imageURL}}" alt="">
+                        <div class="img-wrapper">
+                            <img src="{{item.product.imageURL}}" alt="">
+                        </div>
+                       <div class="cart-info-wrapper">
                         <div class="item-info">
-                            <h5>{{item.product.title}}</h5>
+                            <p>{{item.product.title}}</p>
                             <h5>₹{{item.product.price}}</h5>
                         </div>
                         <div class="item-quantity">
-                            <a  data-product="{{item.product.id}}" data-action="remove" class="update-cart" href=""><i class="fas fa-minus mr-2"></i></a>
+                            <div class="arrow-wrapper">
+                                <a  data-product="{{item.product.id}}" data-action="remove" class="update-cart" href=""><i class="fas fa-minus mr-2"></i></a>
+                            </div>
+                            
                              <div class="item-quantity-value" data-product="{{item.product.id}}">{{item.quantity}}</div>
-                            <a data-product="{{item.product.id}}" data-action="add" class="update-cart" href=""><i class="fas fa-plus ml-2"></i></a>
+                             <div class="arrow-wrapper">
+                                <a data-product="{{item.product.id}}" data-action="add" class="update-cart" href=""><i class="fas fa-plus ml-2"></i></a>
+                             </div>                         
                         </div>
-                        <p>remove</p>
+                       </div>
                     </div>
                     {% endfor %}
+                    <div class="cart-total-wrapper">
+                        <p>Total</p>
+                        <div class="cart-total"><h4>₹{{order.get_cart_total}}</h4></div>
+                    </div>         
+                </div>
+                <div class="place-order">
+                    <a href="{% url 'checkOut' %}" class="btn btn-nav"> Go to Checkout &#x2192;</a>
                 </div>
             </div>
         </div>

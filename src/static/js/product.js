@@ -22,13 +22,7 @@ $(document).ready(function () {
   });
 
 
-  $('.cart-icon').click(function (e) { 
-    $('.cart-modal').addClass("open-cart");
-  });
 
-  $('.close-cart').click(function (e) { 
-    $('.cart-modal').removeClass("open-cart");
-  });
 
 
   $("#search-input").on("keyup", function () {
@@ -37,12 +31,6 @@ $(document).ready(function () {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     })
     
-  });
-
-
-  $('.search-icon').click(function (e) { 
-    $(this).toggleClass("active-mode");
-    $('#search-input').toggleClass("active-width");
   });
 
 });

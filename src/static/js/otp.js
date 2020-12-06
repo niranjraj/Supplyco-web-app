@@ -32,6 +32,14 @@ $(document).ready(function () {
             if( data=='true'){
            
                 window.location.href="/"
+            }else{
+                if( $('#otp-error').length )         // use this if you are using id to check
+                {
+                    $('#otp-error').remove();
+                }
+
+                $("<div id='otp-error' class='alert alert-danger '>You have entered incorret otp</div>").appendTo('.error-msg');
+                $('.error-msg').addClass('slide-in');
             }
             
 

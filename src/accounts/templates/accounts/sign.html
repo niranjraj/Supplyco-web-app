@@ -24,13 +24,16 @@
                         <i class="fas fa-lock"></i>
                         {{form2.password}}
                     </div>
-                    <div class="alert">
+                    <div class="error-msg-1">
+                        <div class="alert">
                        
-                        {{form2.errors}}
-                        {{usererror}}
-            
-
+                            {{form2.errors.email}}
+                            {{usererror}}
+                
+    
+                        </div>
                     </div>
+                 
                  
                     <input type="submit" name="Login" value="Log-in" class="btn solid">
 

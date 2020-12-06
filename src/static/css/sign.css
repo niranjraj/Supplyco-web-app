@@ -241,10 +241,17 @@
       transform: translateX(880px);
 
   }
-  .error-msg{
-    
-    transition: 1s ease-in;
-  }
+  .error-msg,.error-msg-1{
+    opacity: 0;
+    transform: translateX(-50%);
+    transition:1s ease-out;
+}
+.error-msg.slide-in,
+.error-msg-1.slide-in{
+    opacity: 1;
+    transform: translateX(0%);
+
+}
  
   .alert{
     list-style: none;

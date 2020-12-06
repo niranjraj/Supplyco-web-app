@@ -51,25 +51,7 @@ def checkOut(request):
     customer=request.user
     order,created=Order.objects.get_or_create(user=customer,complete=False)
     items=order.orderitem_set.all()
-    cartItems=order.get_cart_items
-
-    for item in items:
-        overflowItem=item.product.quantity-item.quantity
-        if overflowItem>= 0:
-            item.product.quantity=overflowItem
-            item.product.save()
-            item.save()
-        else:
-            item.quantity=item.quantity+overflowItem
-            item.product.save()
-            item.save()
-            return redirect('checkOut')
-              
-        item.product.save()
-        item.save()
-    order,created=Order.objects.get_or_create(user=customer,complete=False)
-    items=order.orderitem_set.all()
-    cartItems=order.get_cart_items     
+    cartItems=order.get_cart_items   
     context={'items':items,'order':order,'cartItems':cartItems}
     return render(request,'product/checkout.html',context)
     
@@ -118,6 +100,28 @@ def processOrder(request):
 
         #checking the carttotal with backend to avoid manipulation
         if total== order.get_cart_total:   
+
+
+            for item in items:
+                print(item.product.quantity)
+                overflowItem=item.product.quantity-item.quantity
+                print(overflowItem)
+                if overflowItem>= 0:
+                    item.product.quantity=overflowItem
+                    print(item.product.quantity)
+                    item.product.save()
+                    print(item.product.quantity)
+                    item.save()
+                else:
+                    item.quantity=item.quantity+overflowItem
+                    item.product.save()
+                    item.save()
+                    return redirect('checkOut')
+                    
+            item.product.save()
+            item.save()
+
+
             order.complete=True
         else:
             redirect('checkOut')

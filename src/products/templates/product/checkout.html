@@ -11,9 +11,11 @@
 </head>
 <body>
     <div class="container">
+        <div class="title">
+           <h1>Checkout</h1> 
+        </div>
         <div class="row">
-            <div class="main-wrapper">
-                <div class="box-element" id='form-wrapper'>
+            <div class="main-wrapper main-wrapper-1">
                     <form action="" id="form">
                         <hr>
                         <h3>Shipping Information:</h3>
@@ -35,31 +37,35 @@
                         <hr>
                         <input type="submit" class="btn btn-success btn-block" id="form-button" value="continue">
                     </form>
-                </div>
+  
 			    <br>
-			    <div class="box-element hidden" id="payment-info">
+			    <div class=" hidden" id="payment-info">
                         <small>Paypal Options</small>
                         <div id="paypal-button-container"></div>
                         
 			    </div>
             </div>
             <div class="main-wrapper main-wrapper-2">
-                <div class="box-element">
                     <a  class="btn btn-back" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
 				    <hr>
 				    <h3>Order Summary</h3>
                     <hr>
                     {% for item in items%}
 			    	<div data-product="{{item.product.id}}" class="cart-row">
-					    <div><img class="row-image" src="{{item.product.imageURL}}"></div>
+					    <div class="img-wrapper"><img class="row-image" src="{{item.product.imageURL}}"></div>
 					    <div><p>{{item.product.name}}</p></div>
 					    <div><p>₹{{item.product.price}}</p></div>
 					    <div><p>{{item.quantity}}</p></div>
                     </div>
                     {% endfor %}
-				    <h5>Items: {{order.get_cart_items}}</h5>
-				    <h5>Total: ₹{{order.get_cart_total|floatformat:2}}</h5>         
-                </div>
+				    <div class="total-amount">
+                        <p class="price-total">Total</p>
+                        <h5>₹{{order.get_cart_total|floatformat:2}}</h5>              
+                    </div>
+                    <div class="total-amount">
+                        <p class="item-total">Items</p>
+                        <h5>{{order.get_cart_items}}</h5>              
+                    </div>
             </div>
         </div>
     </div>

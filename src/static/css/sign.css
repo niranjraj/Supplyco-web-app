@@ -28,7 +28,7 @@
       width:2000px;
       height:2000px;
       border-radius: 50%;
-      background: linear-gradient(-45deg,rgb(118,99,209),rgb(122,119,252));
+      background: linear-gradient(-45deg,#927AFD,#8379FD);
       top:-10%;
       right:48%;
       transform:translateY(-50%);

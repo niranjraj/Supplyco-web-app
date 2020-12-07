@@ -4,7 +4,7 @@
 
 /* variables */
 :root{
-    --primary-clr:linear-gradient(to right,rgb(118,99,209),rgb(122,119,252));
+    --primary-clr: linear-gradient(to right,#927AFD,#8379FD);
     --secondary-clr:#ffffff;
     --button-clr: rgb(118,99,209);
     --footer-icon: rgb(118,99,209);

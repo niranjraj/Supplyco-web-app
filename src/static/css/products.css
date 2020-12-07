@@ -352,7 +352,7 @@
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);   
     transition: all 0.3s ease-out;
     overflow: hidden;
-    color:rgb(122,119,252);
+   
 }
 
 
@@ -368,7 +368,7 @@
     line-height: 50px;
 }
 .social-btn .icon i{
-    color:rgb(122,119,252);
+    color:#927AFD;
     font-size:1.526rem;
     line-height: 50px;
 }

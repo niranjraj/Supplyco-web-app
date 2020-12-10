@@ -43,15 +43,13 @@ class UserManager(BaseUserManager):
 
 
 
-
-
 class User(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField(max_length=255,unique=True)
     active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False) 
     admin = models.BooleanField(default=False) 
     aadhaar=models.CharField(unique=True,validators=[validate_aadhaar],max_length=12)
-    
+    delivery_staff=models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['aadhaar'] 
@@ -83,4 +81,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     def is_active(self):
         return self.active
 
+    @property
+    def is_delivery_staff(self):
+        return self.delivery_staff
 

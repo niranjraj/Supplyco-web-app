@@ -37,7 +37,10 @@ def sign(request):
 
             if user is not None:
                 login(request,user)
-                return redirect('products')
+                if user.is_delivery_staff:
+                    return redirect('delivery')
+                else:
+                     return redirect('products')
             else:
                 
                 passUser=request.user

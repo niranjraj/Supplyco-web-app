@@ -10,6 +10,8 @@ def help(request):
     return render(request,'store/help.html',context)   
 
 
-
+def delivery (request):
+    context={}
+    return render(request,'store/delivery.html',context)
 
 

@@ -75,6 +75,7 @@ class ShippingAddress(models.Model):
     phoneNumber=models.CharField(blank=True,max_length=10)
     date_added=models.DateTimeField(auto_now_add=True)
     payment_completed=models.BooleanField(default=False)
+    active=models.BooleanField(default=True)
 
     def __str__(self):
 	    return self.address

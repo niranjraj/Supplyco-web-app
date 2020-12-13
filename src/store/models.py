@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from accounts.validators import validate_aadhaar
 from products.imagepath import get_filename
+from products.models import ShippingAddress
 
 User=get_user_model()
 # Create your models here.
@@ -14,6 +15,7 @@ def upload_image_path(instance, filename):
         new_filename=uuid4().hex
     final_name = f"{new_filename}{ext}"
     return f"avatars/{final_name}"
+
 
 class Customer (models.Model):
     user=models.OneToOneField(User,on_delete=models.SET_NULL,null=True,blank=True)
@@ -35,3 +37,21 @@ class Customer (models.Model):
        except:
            url= ''    
        return url 
+
+
+class Delivery (models.Model):
+
+    STATUS_CHOICES=(
+        ('Available','Available'),
+        ('Delivering','Delivering'),
+        ('Delivered','Delivered'),
+    
+    )    
+    user=models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    deliverAddress=models.ForeignKey(ShippingAddress, on_delete=models.SET_NULL, null=True)
+    active=models.BooleanField(default=True)
+    status=models.CharField(choices=STATUS_CHOICES,max_length=50,default='Available')
+
+
+    def __str__(self):
+        return str(self.id)

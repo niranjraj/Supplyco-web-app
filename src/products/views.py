@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-
+from store.models import Delivery
 from django.http import JsonResponse
 from django.core import serializers
 import datetime
@@ -127,7 +127,7 @@ def processOrder(request):
             redirect('checkOut')
         order.save()
 
-        ShippingAddress.objects.create(
+        shippingAddress=ShippingAddress.objects.create(
         user=customer,
         order=order,
         address=data["shipping"]["address"],
@@ -135,7 +135,8 @@ def processOrder(request):
         zipcode=data["shipping"]["zipcode"],
         phoneNumber=data["shipping"]["phoneNumber"],
         )
-    
+
+        Delivery.objects.create(deliverAddress=shippingAddress,)
         
         return JsonResponse("payment complete",safe=False)
 

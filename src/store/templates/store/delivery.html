@@ -5,21 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="{% static 'css/deliver.css' %}">
+    
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
 </head>
+
 <body>
     <div class="container">
+        <div class="modal-wrapper">
+            <div class="modal" >model
+                <i class="fas fa-times"></i>
+                <div class="modal-content">
+                    <div class="address">
+                        <ul>
+                            <li>city: <span class="city">Kannur</span></li>
+                            <li>address: <span class="street">123 street vanish</span></li>
+                            <li>zipcode: <span class="zipcode">39433</span></li>
+                            <li>phoneNumber: <span class="phoneNumber">9234787233</span> </li>
+
+                        </ul>
+                    </div>
+                    <h3>Items:</h3>
+                    <div class="order-items" data-deliverId="">
+                        
+                    </div>
+                    <div class="btn-wrapper">
+                        <button class="complete-btn" data-deliverId="">Complete Order</button>
+                        <button class="start-btn btn-view"  data-deliverId="">Start Order</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         <header>       
             <p class="salut">hey,<span>Niranj</span> lets get to work</p>
             <a class="btn logout-btn" href="#">Logout</a>
         </header>
         <nav>
-            <a class="active" href="#">Home</a>
-            <a href="#">Deliver</a>
-            <a href="#">Guidlines</a>
+            <a class="active home"  href="#">Home</a>
+            <a class="deliver" href="#">Deliver</a>
+            <a class="rules" href="#">Rules</a>
         </nav>
         <div class="main-content">
-            <div class="main-wrapper section-1">
+            <div class="first-view main-wrapper section-1 ">
                 <div class="hero">
                    <div class="hero-text">
                     <h2>A <span id="text-variant">better</span> way of <span id="text-variant">delivering</span></h2>
@@ -285,36 +315,31 @@
                 <div class="box-element">
                     <div class="greeting">
                         <p>Hey,you</p>
-                        <h3>Who are you delivering now?</h3>
+                        <h3>Who are you delivering to now?</h3>
                     </div>
+               
                     <div class="deliver-items">
-                        <h4>city</h4>
-                        <div class="shipping-details">
-                            <ul>
-                                <li>name</li>
-                                <li>address Lorem ipsum dolor sit amet consectetur adipisicing el</li>
-                                <li>zipcode</li>
-                                <li>phoneNumber</li>
-                            </ul>
-                            <div class="open-cart"><i class="fas fa-plus ml-2"></i></div>
-                            <div class="order-items">
-                                <div class="img-wrapper"></div>
-                                <div class="item-name">itemname</div>
-                                <div class="item-quantity">10</div>
-                            </div>
+                        {% for deliveryItem in deliveryItems %}
+                        <div class="deliver-card">
+                            <div class="main-city">{{deliveryItem.deliverAddress.city}}</div>
+                            <div class="status" data-open={{deliveryItem.id}}>{{deliveryItem.status}}</div>
+                            <button class='check-btn'  data-deliver={{deliveryItem.id}} >check order</button>
                         </div>
-                        <button class="delivery-btn">Start this order</button>
+                        {% endfor %}
                     </div>
+
                     
                 </div>
             </div>
             <div class="main-wrapper section-3">
-                <div class="hero hero-2">
-                    
-                </div>
+             
+           
             </div>
+           
             
         </div>
+        
     </div>
+    <script src="{% static 'js/deliver.js' %}"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 from django.db import models
 from .imagepath import upload_image_path
-from store.models import Customer
+
 from django.contrib.auth import get_user_model
 
 User=get_user_model()

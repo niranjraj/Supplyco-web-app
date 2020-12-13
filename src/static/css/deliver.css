@@ -227,10 +227,13 @@ h2 #text-variant{
 }
 
 .box-element{
-    background:#ffffff;
+    background:#9796f0;
     padding:1em;
-    border-radius:10px;
+    border-radius:20px;
     height:100%;
+    box-shadow:0px 5px 10px rgba(0, 0, 0, 0.5);
+  
+    overflow: hidden;
 }
 
 .greeting{
@@ -239,10 +242,57 @@ h2 #text-variant{
 }
 
 .deliver-items{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    padding:1em;
+    height:90%;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 180px;
+    gap:1em;
+
     
+}
+.deliver-card{
+    background-color:#aeaef3;
+    text-align: center;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding:2em;
+    border-radius:20px;
+    transform: translateY(50%);
+    opacity: 0;
+    transition:1.2s ease-in;
+
+}
+
+.deliver-card.in-view{
+    transform: translateY(0);
+    opacity: 1;
+}
+.main-city{
+    color:#3C3257;
+    font-size: 1.1rem;
+
+   
+}
+.status{
+  
+    background-color: #fbc7d4;
+    border-radius: 5px;
+    margin:0.5em 0;
+    
+
+}
+.check-btn{
+    outline: none;
+    padding:0.5em;
+    margin:0.5em 0;
+    border:none;
+    cursor: pointer;
+    text-transform: capitalize;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color:#ffffff;
+    background:#3C3257;
 }
 
 .shipping-details ul{
@@ -266,10 +316,11 @@ h2 #text-variant{
     visibility: visible;
 }
 .modal{
-    background-color:#f4f4f4f4;
-    margin:20% auto;
+    background-color:#aeaef3;
+    margin:10% auto;
     position: relative;
-  
+    border-radius:20px;
+    min-height: 300px;
     padding:1.5em;
     width:70%;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2),0 5px 10px rgba(0, 0, 0, 0.2) ;
@@ -278,7 +329,7 @@ h2 #text-variant{
 .fa-times{
     position: absolute;
     top:5px;
-    right:5px;
+    right:10px;
     font-size: 1.4rem;
  
     cursor: pointer;
@@ -286,10 +337,14 @@ h2 #text-variant{
 .address ul{
     display:grid;
     grid-template-columns:1fr 1fr;
+    text-transform: capitalize;
+    font-weight: 600;
 
 }
 .address ul span{
     margin-left:1em;
+    text-transform: none;
+    font-weight: 400;
 }
 .order-items{
     display: grid;

@@ -14,21 +14,29 @@ def help(request):
 
 def delivery (request):
     deliveryItems=Delivery.objects.filter(active=True)
-
+    currentUserName=request.user
     currentUser=request.user.id
     print(currentUser)
     # sending data of specific order
     if request.method=="POST":
         data=json.loads(request.body)
         if(data['action']=='check'):
-                print('hello')
+              
                 details=Delivery.objects.get(id=data['deliveryId'])
                 address=details.deliverAddress.address
                 zipcode=details.deliverAddress.zipcode
                 city=details.deliverAddress.city
                 phoneNumber=details.deliverAddress.phoneNumber
                 orderItems=details.deliverAddress.order.orderitem_set.all()
-                orderUser=details.user.id
+                if details.user is None:
+                    userCheck=True
+                else:    
+                    orderUser=details.user.id
+                    if(orderUser==currentUser):
+                         userCheck=True
+                    else:
+                        userCheck=False
+                    print(orderUser)
                 itemList=[]
                 for item in orderItems:
                     itemName=item.product.title
@@ -41,14 +49,10 @@ def delivery (request):
                     "zipcode":zipcode,
                     "phoneNumber":phoneNumber,
                 }
-                if(orderUser==currentUser):
-                    userCheck=True
-                else:
-                    userCheck=False
-            
+                
+                print(userCheck)
                 return JsonResponse({"shippingInfo":shippingInfo,"itemList":itemList,"userCheck":userCheck},safe=False)   
         if(data['action']=='start'):
-            print(data)
             user=request.user
             details=Delivery.objects.filter(id=data['startId'])
             details.update(status="Delivering")
@@ -62,7 +66,7 @@ def delivery (request):
             details.update(active=False)
             return JsonResponse("success",safe=False)   
 
-    context={'deliveryItems':deliveryItems,'currentUser':currentUser}
+    context={'deliveryItems':deliveryItems,'currentUser':currentUser,'currentUserName':currentUserName}
     return render(request,'store/delivery.html',context)
 
 

@@ -18,11 +18,13 @@ $(document).ready(function () {
     const csrftoken = getToken('csrftoken');
 
 
+   
     
     // <------page layout--------->
     $('nav').on('click', '> *', function(e) {
         e.preventDefault();
         $("nav").children().removeClass('active');
+        $('.deliver-card').removeClass('in-view');
         $(this).addClass('active');
         console.log()
         if(this.className.includes("home")){
@@ -34,6 +36,7 @@ $(document).ready(function () {
           
             $(".main-content").children().removeClass('first-view');
             $('.section-2').addClass('first-view');
+            $('.deliver-card').addClass('in-view');
         }
         else if(this.className.includes("rules")){
             
@@ -53,14 +56,23 @@ $(document).ready(function () {
          
             var firstTime=this.dataset.action;
             var deliveryId=this.dataset.deliver;
+            $('.order-items').attr("data-deliverid",`${deliveryId}`);
+            $('.start-btn').attr("data-deliverid",`${deliveryId}`);
+            $('.complete-btn').attr("data-deliverid",`${deliveryId}`);
             var startOrComplete=$(`.status[data-open="${deliveryId}"]`).text();
             if(startOrComplete=="Delivering"){
-                $('.start-btn').removeClass('btn-view');
-                $('.complete-btn').addClass('btn-view');
+                console.log("delivering")
+                $(`.start-btn[data-deliverid="${deliveryId}"]`).removeClass('btn-view');
+                $(`.complete-btn[data-deliverid="${deliveryId}"]`).addClass('btn-view');
             }
             else if(startOrComplete=="Delivered"){
-                $('.start-btn').removeClass('btn-view');
-                $('.complete-btn').removeClass('btn-view');
+                console.log("here")
+                $(`.start-btn[data-deliverid="${deliveryId}"]`).removeClass('btn-view');
+                $(`.complete-btn[data-deliverid="${deliveryId}"]`).removeClass('btn-view');
+            }
+            else{
+                $(`.start-btn[data-deliverid="${deliveryId}"]`).addClass('btn-view');
+                $(`.complete-btn[data-deliverid="${deliveryId}"]`).removeClass('btn-view');
             }
         
             $.ajax({
@@ -80,19 +92,17 @@ $(document).ready(function () {
                     $('.street').html(street);
                     $('.zipcode').html(zipcode);
                     $('.phoneNumber').html(phoneNumber);
-                    $('.order-items').attr("data-deliverid",`${deliveryId}`);
-                    $('.start-btn').attr("data-deliverid",`${deliveryId}`);
-                    $('.complete-btn').attr("data-deliverid",`${deliveryId}`);
+
                     $('.order-items').html('');
                     
                     if(!userCheck){
-                        $('.start-btn').removeClass('btn-view');
-                        $('.complete-btn').removeClass('btn-view');
+                        console.log(userCheck);
+                        $(`.start-btn[data-deliverid="${deliveryId}"]`).removeClass('btn-view');
+                        $(`.complete-btn[data-deliverid="${deliveryId}"]`).removeClass('btn-view');
                     }
             
             
                     for (var i=0;i<itemList.length;i++){
-                        console.log(itemList[i])
                     
                     $(`<div class='item-wrapper'><div class='item-name'>${itemList[i]["itemName"]}</div><div class='item-quantity'>x${itemList[i]["itemQuantity"]}</div></div>`).appendTo('.order-items')
                     
@@ -118,9 +128,10 @@ $(document).ready(function () {
 
     $('.start-btn').click(function (e) { 
         e.preventDefault();   
-        $('.start-btn').removeClass('btn-view');
-        $('.complete-btn').addClass('btn-view');
         var deliverId=this.dataset.deliverid
+        $(`.start-btn[data-deliverid="${deliverId}"]`).removeClass('btn-view');
+        $(`.complete-btn[data-deliverid="${deliverId}"]`).addClass('btn-view');
+      
         console.log(typeof deliverId)
 
         $.ajax({
@@ -131,7 +142,7 @@ $(document).ready(function () {
             dataType: "json",
             success: function (response) {
                 
-     
+                
            
         
                    
@@ -157,9 +168,7 @@ $(document).ready(function () {
             data: JSON.stringify({'completeId':deliverId,'action':'complete'}),
             dataType: "json",
             success: function (response) {
-                
-              
-                console.log("success")
+                location.reload();
         
                    
          

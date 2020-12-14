@@ -11,6 +11,7 @@ from django.dispatch import receiver
 from django.contrib.auth import get_user_model
 from django.contrib  import sessions
 from django.views.decorators.csrf import csrf_protect
+from .decorators import unauthenticated_user
 from django.http import JsonResponse
 import random
 import http.client
@@ -24,7 +25,8 @@ User=get_user_model()
 API_KEY = str(os.getenv('API_KEY1'))
 
 # Create your views here.
-
+@csrf_protect
+@unauthenticated_user
 def sign(request):
     usererror=''
     User.objects.filter(active=False).delete()

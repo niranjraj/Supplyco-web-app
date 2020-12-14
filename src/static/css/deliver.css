@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
- * {
+@import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap');
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -98,7 +99,7 @@ nav a:hover{
     margin-left:250px;
     grid-template-columns: 1fr;
     height: 100%;
-    padding:3em;
+
     
 }
 
@@ -107,6 +108,7 @@ nav a:hover{
     grid-row: 1/auto;
     width: 100%;
     height: 100%;
+    padding:3em;
   
 }
 
@@ -246,7 +248,7 @@ h2 #text-variant{
     padding:1em;
     height:90%;
     grid-template-columns: repeat(4,1fr);
-    grid-template-rows: 180px;
+    grid-auto-rows: 180px;
     gap:1em;
 
     
@@ -315,7 +317,7 @@ h2 #text-variant{
 .modal-wrapper.open{
     visibility: visible;
 }
-.modal{
+.modal-wrapper.open .modal{
     background-color:#aeaef3;
     margin:10% auto;
     position: relative;
@@ -324,12 +326,38 @@ h2 #text-variant{
     padding:1.5em;
     width:70%;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2),0 5px 10px rgba(0, 0, 0, 0.2) ;
+    animation: modal 0.7s linear;
+    
 }
+@keyframes modal{
+    0%{
+        transform:translateY(80%);
+        opacity:0;
+    }
+    25%{
+        transform:translateY(60%);
+        opacity:0.4;
+    }
+    50%{
+        transform:translateY(40%);
+        opacity:0.6;
+    }
+    75%{
+        transform:translateY(20%);
+        opacity:0.8;
+    }
+    100%{
+        transform:translateY(0%);
+        opacity:1;
+    }
+}
+
+
 
 .fa-times{
     position: absolute;
     top:5px;
-    right:10px;
+    right:15px;
     font-size: 1.4rem;
  
     cursor: pointer;
@@ -339,6 +367,7 @@ h2 #text-variant{
     grid-template-columns:1fr 1fr;
     text-transform: capitalize;
     font-weight: 600;
+    margin: 1em 0;
 
 }
 .address ul span{
@@ -353,12 +382,14 @@ h2 #text-variant{
 }
 .item-wrapper{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     
 }
 .btn-wrapper{
     display:grid;
+    margin:1em 0;
     grid-template-columns: repeat(3,1fr);
+    justify-items: center;
 }
 .complete-btn{
     grid-column: 2/3;
@@ -378,7 +409,65 @@ h2 #text-variant{
     pointer-events: all;
 
 }
+.start-btn,.complete-btn{
+    padding:1em;
+    cursor: pointer;
+    border:none;
+    border-radius:10px;
+    width:60%;
+    outline: none;
+    font-weight: 600;
+   
+    
+}
 
+.start-btn{
+    color:#ffffff;
+    background:#4C196A;
+}
+.complete-btn{
+    background:#22223b;
+    color:#ffffff;
+}
+.index-num{
+    font-size: 5rem;
+    font-family: 'Vast Shadow', cursive;
+
+}
+.rule-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+.rule{
+   display: flex;
+   align-items: center;
+
+   margin: 1em;
+   padding:1em;
+   transition: 1.3s ease-in;
+}
+
+.rule-1,.rule-3{
+    transform: translateX(50%);
+    opacity: 0;
+    
+}
+.rule-2,.rule-4{
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.rule.in-view{
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.rule p{
+   line-height: 20px;
+   font-size: 1.2rem;
+   padding:1em;
+}
 /* .container.active-mode{
     background:url(/static/images/newbackgrond.svg);
     background-size: cover;
@@ -455,6 +544,12 @@ h2 #text-variant{
         margin-right: 0px;
         margin-top: 0.5em;
     }
+    .deliver-items{
+
+        grid-template-columns: repeat(3,1fr);
+      
+        
+    }
 
 
     
@@ -485,5 +580,52 @@ h2 #text-variant{
         flex-direction: column;
         align-items: center;
     }
+    .box-element{
+        width:100%;
+    }
+    .section-2{
+        padding:0;
+    }
+
+    .deliver-items{
+  
+        grid-template-columns: 180px 180px;
+        justify-content: center;    
+    }
+
+
+    .modal-wrapper.open .modal{
+        
+        margin:0;
+        position: absolute;
+     
+        bottom:0px;
+        width:100%;
+        border-bottom-left-radius:0px;
+        border-bottom-right-radius:0px;
+        
+        
+    }
+    .address ul{
+
+      grid-template-columns:1fr;
+      padding-left:1em;
+   
+      gap:1em;  
+    
+    }
+    .order-items{
+        grid-template-columns: 1fr;
+    }
+    .start-btn,.complete-btn{
+
+        width:100%;       
+    }
 }
 
+@media(max-width:440px){
+    .deliver-items{
+  
+        grid-template-columns: 180px;
+    }
+}

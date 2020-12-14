@@ -41,8 +41,8 @@
             </div>
         </div>
         <header>       
-            <p class="salut">You are logged in with the account <span>{{currentUserName}}</span></p>
-            <a class="btn logout-btn" href="#">Logout</a>
+            <p class="salut"> Logged in with <span>{{currentUserName}}</span></p>
+            <a class="btn logout-btn" href="{% url 'logout' %}">Logout</a>
         </header>
         <nav>
             <a class="active home"  href="#">Home</a>
@@ -333,7 +333,24 @@
                 </div>
             </div>
             <div class="main-wrapper section-3">
-             
+                <div class="rules-container">
+                    <div class="rule rule-1">
+                        <div class="index-num">1.</div>
+                        <p>Employees of Supplyco are expected to adhere to and uphold the highest standard of ethics and integrity. This includes acting in accordance with our core values.</p>
+                    </div>
+                    <div class="rule rule-2">
+                        <div class="index-num">2.</div>
+                        <p> Employees are prohibited from using their employee status to solicit discounts, freebies, or special treatment at the store.</p>
+                    </div>
+                    <div class="rule rule-3">
+                        <div class="index-num">3.</div>
+                        <p>Have a valid driver's license, registration, and vehicle insurance with a vehicle 20 years or newer.</p>
+                    </div>
+                    <div class="rule rule-4">
+                        <div class="index-num">4.</div>
+                        <p>Please email supplyco@gmail.com if you witness any behavior not in compliance with this code as it is in direct violation of employee contracts.</p>
+                    </div>
+                </div>
            
             </div>
            

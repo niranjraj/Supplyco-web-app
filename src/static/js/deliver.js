@@ -25,6 +25,7 @@ $(document).ready(function () {
         e.preventDefault();
         $("nav").children().removeClass('active');
         $('.deliver-card').removeClass('in-view');
+        $('.rule').removeClass("in-view");
         $(this).addClass('active');
         console.log()
         if(this.className.includes("home")){
@@ -42,6 +43,7 @@ $(document).ready(function () {
             
             $(".main-content").children().removeClass('first-view');
             $('.section-3').addClass('first-view');
+            $('.rule').addClass("in-view");
         }
     });
 

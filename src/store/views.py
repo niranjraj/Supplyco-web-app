@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import *
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from accounts.decorators import delivery_users
 import json
 # Create your views here.
 def store(request):
@@ -11,7 +13,8 @@ def help(request):
     context={}
     return render(request,'store/help.html',context)   
 
-
+@login_required(login_url='sign')
+@delivery_users
 def delivery (request):
     deliveryItems=Delivery.objects.filter(active=True)
     currentUserName=request.user

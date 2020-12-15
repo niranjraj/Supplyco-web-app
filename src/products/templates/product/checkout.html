@@ -48,7 +48,7 @@
             <div class="main-wrapper main-wrapper-2">
                     <a  class="btn btn-back" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
 				    <hr>
-				    <h3>Order Summary</h3>
+				    <h3>Order Summary:</h3>
                     <hr>
                     {% for item in items%}
 			    	<div data-product="{{item.product.id}}" class="cart-row">

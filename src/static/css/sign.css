@@ -158,7 +158,7 @@
       outline: none;
       border-radius: 49px;
       cursor: pointer;
-      background-color: #7663d1 ;
+      background:  linear-gradient(to right,#927AFD,#8379FD);
       color:#fff;
       text-transform: uppercase;
       font-weight: 600;
@@ -167,7 +167,7 @@
   }
 
   .btn:hover{
-      background-color:#a100ff;
+    background:  linear-gradient(to right,#9e89fd,#8e85fd);
   }
 
   .social-text{
@@ -205,7 +205,7 @@
 }
 
   .panel .content{
-      color:#fff;
+      color:#ffffff;
       transition: .9s .6s ease-in-out;
   }
 
@@ -223,13 +223,19 @@
 
   .btn.transparent{
       margin:0;
-      background: none;
+      background:linear-gradient(to right,transparent 50%,#ffffff 50%);
+      background-size:266px 41px; 
       border: 2px solid #fff;
       width:133px;
       height: 41px;
       font-weight: 600;
       font-size: 0.8rem;
+      transition: 0.5s ease-out;
 
+  }
+  .btn.transparent:hover{
+    background-position: 133px 0px;
+    color:#927AFD;
   }
 
   .image{
@@ -402,8 +408,10 @@
       width: 110px;
       height: 35px;
       font-size: 0.7rem;
+   
     }
-  
+
+
     .container:before {
       width: 1500px;
       height: 1500px;

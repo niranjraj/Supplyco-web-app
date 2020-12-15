@@ -4,13 +4,14 @@ $(document).ready(function () {
         $('.error-msg-1').addClass('slide-in');
     }
 
+    // csrftoken
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
             const cookies = document.cookie.split(';');
             for (let i = 0; i < cookies.length; i++) {
                 const cookie = cookies[i].trim();
-                // Does this cookie string begin with the name we want?
+        
                 if (cookie.substring(0, name.length + 1) === (name + '=')) {
                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                     break;
@@ -21,6 +22,9 @@ $(document).ready(function () {
     }
     const csrftoken = getCookie('csrftoken');
     
+
+
+
     $('#sign-form').submit(function (e) { 
         e.preventDefault();
         var form=document.getElementById('sign-form')
@@ -39,25 +43,27 @@ $(document).ready(function () {
             dataType: "json",
             success: function (response) {
                 
+                // dynamic error msg
+
                 var data=JSON.parse(response)
                 var errorvalue=data["errormsg"]
                 var success=data["success"]
-                console.log(typeof success);
+          
                 if (success){
                     console.log("success")
                     document.location.href="/sign/otp";
                 }
                 var errormsg=$(".error-msg").html();
 
-                if( $('#aadhaar-error').length )         // use this if you are using id to check
+                if( $('#aadhaar-error').length )         
                 {     
                      $('#aadhaar-error').remove();
                 }
-                if( $('#email-error').length )         // use this if you are using id to check
+                if( $('#email-error').length )         
                 {
                     $('#email-error').remove();
                 }
-                if( $('#password-error').length )         // use this if you are using id to check
+                if( $('#password-error').length )         
                     {
                         $('#password-error').remove();  
                     }

@@ -7,6 +7,7 @@
     --primary-clr: linear-gradient(to right,#927AFD,#8379FD);
     --secondary-clr:#ffffff;
     --button-clr: rgb(118,99,209);
+    --button-bg:#ffffff;
     --footer-icon: rgb(118,99,209);
     --dark-clr:#3e1f47  ;
     --header-background:transparent;
@@ -14,6 +15,8 @@
     --header-clr:#2b2b2b;
     --background-clr:#EEECED;
     --light-accent:rgb(211,211,211);
+    --hover-clr:#F28D9F;
+    --button-hover:#fff3ff;
 
 }
 
@@ -78,9 +81,14 @@ img{
 .nav-scroll{
     --secondary-clr: rgb(118,99,209);
     --primary-clr:#ffffff;
-    --light-accent:#3C2B92;
+    --light-accent:#5e49c9;
     --button-clr:#ffffff;
     --header-background:#ffffff;
+    --hover-clr:#f72585;
+    --button-bg:linear-gradient(to right,#927AFD,#8379FD);
+    --button-hover:linear-gradient(to right,#9b86fd,#897ffd);;
+
+
 }
 
 
@@ -146,7 +154,7 @@ img{
 }
 
 .nav-list li :hover{
-    color:var(--light-accent); 
+    color:var(--hover-clr); 
   
      
 }
@@ -187,10 +195,13 @@ img{
     padding: 0.2em;
     text-align: center  ;
     border-radius: 20px;
-    background-color: var(--secondary-clr);
+    background: var(--button-bg);
     margin: 2em auto;
   
    
+}
+.menu-btn a:hover{
+    background: var(--button-hover);
 }
 .container{
     display: flex;
@@ -226,6 +237,7 @@ img{
   
     font-family: 'Noto Sans', sans-serif;
     line-height: 45px;
+    cursor: default;
     background:linear-gradient(to right,#C6FFDD,#FBD786);
     background-size: 200%;
     background-clip:text;
@@ -288,19 +300,29 @@ img{
 }
 
 .card{
-    width:17.1875em;
-    height: 17.1875em;
-    display: inline-block;
+    width:17em;
+    height: 17em;
+    position: relative;
     border-radius: 10px;
     padding:0.9375em 1.5625em;
     cursor: pointer;
     margin:0.625em 0.93753em;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: transform 0.3s cubic-bezier(.25,.8,.25,1);
-    color:white;
+    color:#ffffff;
    
 }
+.card h3{
+    position: absolute;
+    top:10px;
+}
+.card p{
+    position: absolute;
+    bottom:10px;
+    font-weight: 500;
+}
 .card-text{
+   
     margin:0.5em 0;
     width: 100%;
     text-align: center;
@@ -308,6 +330,7 @@ img{
 }
 
 .card-text h2{
+
     color: var(--header-clr);
     font-weight: 600;
   
@@ -321,7 +344,7 @@ img{
 
 }
 .card-2{
-    background-image:url(/static/images/price.jpeg);
+    background-image:url(/static/images/deliveryman.jpg);
     background-position: center;
     background-size: cover;
     transform: translateX(70%);
@@ -337,7 +360,7 @@ img{
 
 
 .card-4{
-    background-image:url("/static/images/career.jpeg");
+    background-image:url(/static/images/career.jpeg);
     background-position: center;
     background-size: cover;
     transform: translateX(70%);
@@ -666,7 +689,6 @@ img{
     }
     
     .menu-btn a:active{
-        
         padding-top:0em;
     }
 

@@ -17,19 +17,21 @@ $(document).ready(function () {
     }
     const csrftoken = getToken('csrftoken');
 
+
+
     $('.update-cart').click(function (e) { 
         e.preventDefault();
         var productId=this.dataset.product
         var action=this.dataset.action
-        
+        $('nav').css("top","0px" );
         updateUserOrder(productId,action)
-
-        
     });
 
+
+
+    
     function updateUserOrder(productId,action){
            
-
             $.ajax({
                 type: "POST",
                 headers: { "X-CSRFToken": csrftoken },

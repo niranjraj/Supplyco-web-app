@@ -61,7 +61,7 @@ form{
 	border:none;
 	border-radius: 10px;
 	background:#f5f5f5;
-	border-bottom:1px solid #bebabe;
+
 	width: 70%;
 	max-width: 500px;
 	min-width: 250px;
@@ -105,12 +105,16 @@ form{
 	font-weight: 500;
 	text-transform: capitalize;
 }
+.btn:hover{
+	background:  linear-gradient(to right,#9e89fd,#8e85fd);
+}
 .btn-success{
 	position: absolute;
 	bottom:-70px;
 	transform: translateX(50%);
 	right:50%;
 	font-size: 1rem;
+	cursor:pointer
 	
 }
 

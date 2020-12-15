@@ -114,6 +114,7 @@
       border-radius: 30%;
       right:-10px;
       font-size: 0.95rem;
+      transition: 0.5s ease-in;
   }
   .main-content{
      margin-top: 80px;
@@ -170,6 +171,7 @@
 
   .bio{
       margin-top: 4em;
+      text-transform: capitalize;
       text-align: center;
       padding: 0 1em;
   }
@@ -208,6 +210,7 @@
     font-weight: 500;
     padding-left: 2em;
     font-size: 1.2rem;
+    font-weight: 500;
     height: 50px;
     width:300px;
     transition: 0.8s ease-out;
@@ -253,7 +256,7 @@
   .products-overlay{
       display: grid;
       grid-template-columns: 1fr;
-      
+      grid-auto-rows: auto;
       
   }
   
@@ -297,6 +300,9 @@
     border-radius: 10px;
     border:none;
 
+  }
+  .add-btn:hover{
+    background:  linear-gradient(to right,#9e89fd,#8e85fd);
   }
   .product-details {
       margin: 1em 0;
@@ -346,6 +352,7 @@
     height: 50px;
     width: 50px;
     margin: 0 5px;
+    color:#927AFD;
     border-radius: 50px;
     background:#ffffff;
     cursor: pointer;

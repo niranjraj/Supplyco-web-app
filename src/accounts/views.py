@@ -36,16 +36,14 @@ def sign(request):
             email=form2.cleaned_data.get("email")
             password=form2.cleaned_data.get("password") 
             user= authenticate(request,username=email,password=password)
-
             if user is not None:
                 login(request,user)
                 if user.is_delivery_staff:
                     return redirect('delivery')
                 else:
                      return redirect('products')
-            else:
-                
-                passUser=request.user
+            else:      
+                passUser=User.objects.get(email=email)
                 answer=passUser.check_password(password)
                 if(not answer):
                     usererror="Invalid Password"

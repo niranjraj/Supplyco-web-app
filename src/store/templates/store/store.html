@@ -24,11 +24,11 @@
                 <nav class="drawer">
                     <ul class="nav-list">
                         <li><a href="">Home</a></li>
-                        <li><a href="#">Purchase</a></li>
-                        <li><a href="help/">Help</a></li>
+                        <li><a href="{% url 'products' %}">Purchase</a></li>
+                        <li><a href="{% url 'help' %}">Help</a></li>
                         <li>
                             <div class="menu-btn">
-                                <a href="sign/" class="login-btn">Login</a>
+                                <a href="{% url 'sign' %}" class="login-btn">Login</a>
                             
                             </div>  
                         </li>  
@@ -72,22 +72,22 @@
                     <h2>What we provide</h2>
                 </div>
                 <div class="col">
-                    <div class="card card-1" >
+                    <a href="#" class="card card-1" >
                         <h3>Our Products</h3>
                         <p>Tea, Coffee, Atta, Chilly Powder etc.</p>
-                    </div>
-                    <div class="card card-2 ">
-                        <h3>Price List</h3>
-                        <p>Latest Price list.</p>
-                    </div>
-                    <div class="card card-3">
+                    </a>
+                    <a href="{% url 'delivery' %}"class="card card-2 ">
+                        <h3>Delivery Service</h3>
+                        <p>Free and Fast delivery</p>
+                    </a>
+                    <a href="#"class="card card-3">
                         <h3>Paddy Procurement</h3>
                         <p>www.Supplycopaddy.in.</p>
-                    </div>
-                    <div class="card card-4">
+                    </a>
+                    <a href="#" class="card card-4">
                         <h3>Careers</h3>
                         <p>Details about careers and job opportunities in Supplyco.</p>
-                    </div>
+                    </a>
                 </div>
             </section>
     

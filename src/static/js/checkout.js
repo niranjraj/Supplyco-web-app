@@ -21,7 +21,7 @@ $(document).ready(function () {
     $(form).submit(function (e) { 
         e.preventDefault()
         $('.btn-success ').hide();
-        $('#payment-info').show();
+        $('#payment-info').show(800);
         
     });
 

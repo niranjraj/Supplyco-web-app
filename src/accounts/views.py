@@ -6,7 +6,6 @@ from .forms import SignUpForm,LoginForm
 from  django.contrib import messages
 from django.contrib.auth import authenticate, login
 from store.models import Customer
-from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth import get_user_model
 from django.contrib  import sessions

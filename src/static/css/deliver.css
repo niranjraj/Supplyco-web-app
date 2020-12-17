@@ -12,7 +12,8 @@
 body{
     font-family: "Poppins", sans-serif;
     color:#3C3257;
-	
+    height: 100%;
+    
 
 }
 li{
@@ -48,16 +49,16 @@ header p span{
 nav{
     position: fixed;
     display: flex;
-   
-    width:250px;
-    z-index: 10;
-    height: 100%;
     top:0px;
     left:0px;
+
+    width:250px;
+    z-index: 10;
+    height:100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+
 }
 
 nav a{
@@ -90,6 +91,7 @@ nav a:hover{
     height: 100%;
     background:linear-gradient(to right,#9796f0 ,#fbc7d4);
     overflow: hidden;
+
     transition: 0.5s ease-in;
    
 }
@@ -114,7 +116,8 @@ nav a:hover{
 
 .section-1{
     z-index: 2;
-    opacity: 0;
+    opacity:0;
+    visibility: hidden;
     transform: translateY(50%);
     pointer-events: none;
     transition: 0.8s ease-out;
@@ -123,7 +126,8 @@ nav a:hover{
 }
 .section-2{
     z-index: 2;
-    opacity: 0;
+    opacity:0;
+    visibility: hidden;
     transform: translateY(50%);
     pointer-events: none;
     transition: 0.8s ease-out;
@@ -132,7 +136,8 @@ nav a:hover{
 }   
 .section-3{
     z-index: 2;
-    opacity: 0;
+    opacity:0;
+    visibility: hidden;
     transform: translateY(50%);
     pointer-events: none;
     transition: 0.8s ease-out;
@@ -140,7 +145,13 @@ nav a:hover{
     
 }
 
-
+.first-view{
+    z-index:3;
+    opacity:1;
+    visibility: visible;
+    pointer-events: all;
+    transform: translateY(0);
+}
 
 .bike{
     padding: 0.5em;
@@ -214,18 +225,15 @@ h2 #text-variant{
 .btn{
     padding:0.8em 1.3em;
     border-radius:50px;
-    background:linear-gradient(to right,#7F00FF,#E100FF);
+    background:linear-gradient(to right,#7F00FF,#E100FF );
+    background-size: 100px 22px;
     color:#ffffff;
     border-bottom:2px solid #5700af;
-
+    transition:0.7s ease-out;
 }
 
-
-.first-view{
-    z-index:3;
-    opacity:1;
-    pointer-events: all;
-    transform: translateY(0);
+.logout-btn:hover{
+    background-position: 100px;
 }
 
 .box-element{
@@ -297,6 +305,10 @@ h2 #text-variant{
     background:#3C3257;
 }
 
+.check-btn:hover{
+    background:#4b3e6c;
+}
+
 .shipping-details ul{
    margin:1em 0;
    display: grid;
@@ -308,14 +320,16 @@ h2 #text-variant{
     position: fixed;
     left:0;
     top:0;
-    height:100%;
-    width: 100%;
+    height:100vh;
+    width: 100vw;
     background:rgba(0,0,0,0.5);
     z-index:50;
     visibility: hidden;
+    display: none;
 }
 .modal-wrapper.open{
     visibility: visible;
+    display: block;
 }
 .modal-wrapper.open .modal{
     background-color:#aeaef3;
@@ -396,12 +410,23 @@ h2 #text-variant{
     grid-row: 1/auto;
     opacity:0;
     pointer-events: none;
+    background:#22223b;
+    color:#ffffff;
 }
 .start-btn{
     grid-column: 2/3;
     grid-row: 1/auto;
     opacity:0;
     pointer-events: none;
+    color:#ffffff;
+    background:#4C196A;
+}
+.start-btn:hover{
+    background:#5c397b;
+}
+
+.complete-btn:hover{
+    background:#36365e;
 }
 
 .btn-view{
@@ -421,14 +446,7 @@ h2 #text-variant{
     
 }
 
-.start-btn{
-    color:#ffffff;
-    background:#4C196A;
-}
-.complete-btn{
-    background:#22223b;
-    color:#ffffff;
-}
+
 .index-num{
     font-size: 5rem;
     font-family: 'Vast Shadow', cursive;
@@ -437,29 +455,37 @@ h2 #text-variant{
 .rule-container{
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     
 }
 .rule{
    display: flex;
    align-items: center;
-
+ 
    margin: 1em;
    padding:1em;
+   height: 100%;
    transition: 1.3s ease-in;
+   overflow: hidden;
 }
 
 .rule-1,.rule-3{
     transform: translateX(50%);
+    visibility: hidden;
+ 
     opacity: 0;
     
 }
 .rule-2,.rule-4{
     transform: translateX(-50%);
+    visibility: hidden;
     opacity: 0;
 }
 
 .rule.in-view{
     transform: translateX(0%);
+    visibility: visible;
+
     opacity: 1;
 }
 
@@ -473,7 +499,7 @@ h2 #text-variant{
     background-size: cover;
     background-repeat: no-repeat;
 } */
-/* <------animation--------> */
+
 
 
 
@@ -559,7 +585,10 @@ h2 #text-variant{
 
 @media(max-width:650px){
     
+    header p{
+        text-align: center;
 
+    }
     .hero{
         flex-direction: column;
         align-items: center;
@@ -628,4 +657,26 @@ h2 #text-variant{
   
         grid-template-columns: 180px;
     }
+    header{
+        grid-template-columns: 1fr;
+    }
+    .section-3{
+        padding:0;
+    }
+    .rule{
+        margin:0;
+    }
+    .rule p{
+        line-height: 20px;
+        font-size: 1rem;
+        padding:1em;
+     }
+}
+
+@media(min-width:2000px){
+    .main-content{
+        height: 100vh;
+    }
+ 
+
 }

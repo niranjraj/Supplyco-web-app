@@ -3,6 +3,7 @@ from .models import *
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from accounts.decorators import delivery_users
+from .forms import HelpForm
 import json
 # Create your views here.
 def store(request):
@@ -10,7 +11,13 @@ def store(request):
     return render(request,'store/store.html',context)
 
 def help(request):
-    context={}
+    form=HelpForm()
+    context={'form':form}
+    if request.method=="POST":
+        form=HelpForm(request.POST)
+        if form.is_valid():
+            print("form")
+            form.save()   
     return render(request,'store/help.html',context)   
 
 @login_required(login_url='sign')

@@ -103,14 +103,10 @@ def processOrder(request):
 
 
             for item in items:
-                print(item.product.quantity)
                 overflowItem=item.product.quantity-item.quantity
-                print(overflowItem)
                 if overflowItem>= 0:
                     item.product.quantity=overflowItem
-                    print(item.product.quantity)
                     item.product.save()
-                    print(item.product.quantity)
                     item.save()
                 else:
                     item.quantity=item.quantity+overflowItem
@@ -118,8 +114,6 @@ def processOrder(request):
                     item.save()
                     return redirect('checkOut')
                     
-            item.product.save()
-            item.save()
 
 
             order.complete=True

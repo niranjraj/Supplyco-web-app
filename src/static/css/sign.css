@@ -1,7 +1,5 @@
 /* desktop first */
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
-
 
  * {
     margin: 0;
@@ -28,7 +26,7 @@
       width:2000px;
       height:2000px;
       border-radius: 50%;
-      background: linear-gradient(-45deg,#927AFD,#8379FD);
+      background: linear-gradient(-45deg,#DA22FF,#9733EE);
       top:-10%;
       right:48%;
       transform:translateY(-50%);
@@ -158,7 +156,7 @@
       outline: none;
       border-radius: 49px;
       cursor: pointer;
-      background:  linear-gradient(to right,#927AFD,#8379FD);
+      background: linear-gradient(to right,#DA22FF,#9733EE);
       color:#fff;
       text-transform: uppercase;
       font-weight: 600;
@@ -167,7 +165,7 @@
   }
 
   .btn:hover{
-    background:  linear-gradient(to right,#9e89fd,#8e85fd);
+    background: linear-gradient(to right,#e251ff,#aa58f1);
   }
 
   .social-text{

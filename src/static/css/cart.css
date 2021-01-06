@@ -24,7 +24,7 @@ a{
 
 
 .cart-items-info{
-    background:linear-gradient(to right,#927AFD,#8379FD);
+    background:linear-gradient(to right,#DA22FF, #9733EE);
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
     padding:3em 1em 1em 1em;
@@ -41,13 +41,13 @@ a{
 }
 .btn{
     padding:1em;
-    background:linear-gradient(to right,#927AFD,#8379FD);
+    background:linear-gradient(to right,#DA22FF, #9733EE);
     border-radius:10px;
     color:#ffffff;
     font-weight: 500;
 }
 .btn:hover{
-    background:  linear-gradient(to right,#9e89fd,#8e85fd);
+    background: linear-gradient(to right,#e251ff,#aa58f1);
 }
 
 .cart-content{

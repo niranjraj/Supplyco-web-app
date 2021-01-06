@@ -50,41 +50,29 @@ $(document).ready(function () {
                 var success=data["success"]
           
                 if (success){
-                    console.log("success")
+                 
                     document.location.href="/sign/otp";
-                }
-                var errormsg=$(".error-msg").html();
-
-                if( $('#aadhaar-error').length )         
-                {     
-                     $('#aadhaar-error').remove();
-                }
-                if( $('#email-error').length )         
-                {
-                    $('#email-error').remove();
-                }
-                if( $('#password-error').length )         
-                    {
-                        $('#password-error').remove();  
-                    }
+                }      
+                    
+                $('#aadhaar-error').remove(); 
+                $('#email-error').remove();
+                $('#password-error').remove();  
+                
 
                 for (var msg in errorvalue){
             
                     if (msg=="aadhaar"){
                         $("<div id='aadhaar-error' class='alert alert-danger '>Invalid Aadhaar or Aadhaar already in use</div>").appendTo('.error-msg');
-                        $('.error-msg').addClass('slide-in');
                     }
                     if (msg=="email"){
                         $("<div id='email-error' class='alert alert-danger '>Invalid Email or User already exist</div>").appendTo('.error-msg');
-                        $('.error-msg').addClass('slide-in');
                     }
-                     if (msg=="password2"){
-                        
+                     if (msg=="password2"){           
                         $("<div id='password-error' class='alert alert-danger '>Passwords don't match</div>").appendTo('.error-msg');
-                        $('.error-msg').addClass('slide-in');
-                    }
-                    
+                    }  
                 }
+                $('.error-msg').addClass('slide-in');
+               
             
             
 

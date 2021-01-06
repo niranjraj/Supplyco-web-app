@@ -31,7 +31,7 @@
       top:0;
       width: 100%;
       height:80px;
-      background:linear-gradient(to right,#927AFD,#8379FD);
+      background:linear-gradient(to right,#DA22FF,#9733EE);
       padding: 0 1em;
       box-shadow: -1px -2px 13px 0px rgba(92,92,92,0.75);
     -webkit-box-shadow: -1px -2px 13px 0px rgba(92,92,92,0.75);
@@ -207,7 +207,7 @@
   .search-bar input{
     border-radius:10px;
     border:none;
-    background:linear-gradient(to right,#ffffff 50% ,#927AFD 25%,#8379FD 25%);
+    background:linear-gradient(to right,#ffffff 50% ,#DA22FF 25%,#9733EE 25%);
     background-size: 200%;
     outline:none;
     color:#ffffff;
@@ -291,7 +291,7 @@
       height:150px;
   }
   .add-btn{
-    background:linear-gradient(to right,#927AFD,#8379FD);
+    background:linear-gradient(to right,#DA22FF,#9733EE);
     color:#ffffff;
     cursor: pointer;
     text-decoration: none;
@@ -306,7 +306,7 @@
 
   }
   .add-btn:hover{
-    background:  linear-gradient(to right,#9e89fd,#8e85fd);
+    background:  linear-gradient(to right,#e251ff,#aa58f1);
   }
   .product-details {
       margin: 1em 0;
@@ -336,7 +336,7 @@
     height:300px;
     width: 100%;
     font-size: 0.725rem;
-    background:linear-gradient(to right,#927AFD,#8379FD);
+    background:linear-gradient(to right,#DA22FF,#9733EE);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -356,7 +356,7 @@
     height: 50px;
     width: 50px;
     margin: 0 5px;
-    color:#927AFD;
+    color:#cd00f6;
     border-radius: 50px;
     background:#ffffff;
     cursor: pointer;
@@ -379,7 +379,6 @@
     line-height: 50px;
 }
 .social-btn .icon i{
-    color:#927AFD;
     font-size:1.526rem;
     line-height: 50px;
 }

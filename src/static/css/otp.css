@@ -38,7 +38,7 @@ h4{
 	width:2000px;
 	height:2000px;
 	border-radius: 50%;
-	background: linear-gradient(-45deg,#927AFD,#8379FD);
+	background:linear-gradient(-45deg,#DA22FF,#9733EE);
 	top:-10%;
 	right:48%;
 	transform:translateY(-50%);
@@ -93,7 +93,7 @@ a{
       width:500px;
       height:500px;
       border-radius: 50%;
-      background: linear-gradient(-45deg,#927AFD,#8379FD);
+      background:linear-gradient(-45deg,#DA22FF,#9733EE);
       top:-10%;
       right:-30%;
       transform:translateY(-50%);
@@ -142,7 +142,7 @@ input[type=number]::-webkit-outer-spin-button {
     border:none;
     font-weight: 500;
     font-size: 1em;
-    background: linear-gradient(to right,#927AFD,#8379FD);
+    background: linear-gradient(-45deg,#DA22FF,#9733EE);
     color:#ffffff;
     cursor: pointer;
     outline: none;

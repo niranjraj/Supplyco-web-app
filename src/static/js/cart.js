@@ -23,6 +23,7 @@ $(document).ready(function () {
         e.preventDefault();
         var productId=this.dataset.product
         var action=this.dataset.action
+        console.log(productId,action);
         $('nav').css("top","0px" );
         updateUserOrder(productId,action)
     });

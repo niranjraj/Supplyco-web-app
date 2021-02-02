@@ -37,6 +37,23 @@
                 </div>
             </nav>
         </header>
+        <div class="modal-wrapper">
+            <div class="modal">
+                <i class="fas fa-times"></i>
+                <div class="modal-item">
+                    <div class="modal-img">
+                        <img class="modal-item-img" src="" alt="product">
+                    </div>
+                    <div class="modal-item-title">
+                        <div class="modal-item-name">No product</div>
+                        <div class="modal-item-price">10</div>
+                    </div>
+                    
+                </div>
+                    <div class="modal-item-description">this is a cheese</div>
+                    <button data-product={{product.id}} data-action="add" class="add-btn update-cart modal-add-btn">Add to cart</button>
+            </div>
+        </div>
         <div class="main-content">
             <div class="profile">
                 <div class="profile-bg">
@@ -63,7 +80,7 @@
                     {% for product in products %}
                         {% if product.active %}
                             <div class="product-card">
-                                <div class="product-img-wrapper">
+                                <div class="product-img-wrapper" data-product={{product.id}}>
                                     <img src="{{ product.imageURL }}" alt="product">
                                 </div>
                                 <div class="product-details">

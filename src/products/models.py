@@ -11,6 +11,7 @@ class Product(models.Model):
     title = models.CharField(max_length=50)
     active = models.BooleanField(default=False)
     price = models.DecimalField(max_digits=20, decimal_places=2)
+    description = models.CharField(max_length=200, default='No description')
     quantity = models.IntegerField(default=0)
     image = models.ImageField(
         upload_to=upload_image_path, null=True, blank=True)

@@ -53,10 +53,101 @@ nav {
   transform: translateY(-50%);
 }
 
+.modal-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  visibility: hidden;
+  display: none;
+}
+.modal-wrapper.open {
+  visibility: visible;
+  display: block;
+}
+.modal-wrapper.open .modal {
+  background-color: #ffffff;
+  margin: 10% auto;
+  position: relative;
+  border-radius: 10px;
+  min-height: 500px;
+  padding: 1.5em;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2);
+  animation: modal 0.5s linear;
+}
+
+@keyframes modal {
+  0% {
+    transform: translateY(80%);
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(60%);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(40%);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateY(20%);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.modal-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.modal-item-description {
+  padding: 1em;
+  align-self: center;
+}
+.modal-img {
+  background: #f5f5f5;
+  border-radius: 30px;
+  padding: 3em;
+}
+.modal-item-img {
+  height: 150px;
+  width: 150px;
+}
+.modal-item-title {
+  font-size: 2rem;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-transform: capitalize;
+}
+.fa-times {
+  position: absolute;
+  color: #4a4a4b;
+  top: 5px;
+  right: 15px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.modal-add-btn {
+  align-self: center;
+}
 .menu {
   position: absolute;
   top: 30px;
-  right: -5px;
+  right: -2px;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 5px;
@@ -77,7 +168,10 @@ nav {
   border-bottom-left-radius: 5px;
   visibility: hidden;
   transform: translateY(0px);
-  transition: 0.3s 0.2s ease-in;
+  transition: 0.3s 0.1s ease-in;
+}
+.menu li:hover {
+  background: #f5f5f5;
 }
 .menu li a {
   color: #444;
@@ -170,6 +264,7 @@ i {
 }
 .bio p span {
   letter-spacing: 3px;
+  font-weight: 600;
 }
 
 .products {
@@ -245,7 +340,7 @@ i {
 
 .product-card {
   background-color: #ffffff;
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 1em;
   margin-bottom: 3em;
   text-align: center;
@@ -259,6 +354,10 @@ i {
   border-radius: 30px;
   padding: 3em 2em;
 }
+.product-img-wrapper:hover {
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
 .product-card img {
   width: 150px;
   height: 150px;
@@ -267,6 +366,7 @@ i {
   background: linear-gradient(to right, #da22ff, #9733ee);
   color: #ffffff;
   cursor: pointer;
+  background-size: 120px 20px;
   text-decoration: none;
   text-align: center;
   outline: none;
@@ -276,9 +376,10 @@ i {
   padding: 1em;
   border-radius: 10px;
   border: none;
+  transition: 0.5s ease;
 }
 .add-btn:hover {
-  background: linear-gradient(to right, #e251ff, #aa58f1);
+  background-position: 120px;
 }
 .product-details {
   margin: 1em 0;

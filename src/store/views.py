@@ -50,7 +50,6 @@ def delivery(request):
                     userCheck = True
                 else:
                     userCheck = False
-                print(orderUser)
             itemList = []
             for item in orderItems:
                 itemName = item.product.title
@@ -65,7 +64,6 @@ def delivery(request):
                 "phoneNumber": phoneNumber,
             }
 
-            print(userCheck)
             return JsonResponse({"shippingInfo": shippingInfo, "itemList": itemList, "userCheck": userCheck}, safe=False)
         if(data['action'] == 'start'):
             user = request.user

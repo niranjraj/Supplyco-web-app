@@ -319,11 +319,13 @@
                
                     <div class="deliver-items">
                         {% for deliveryItem in deliveryItems %}
+                        {% if deliveryItem.status != 'Delivered' %}
                         <div class="deliver-card">
                             <div class="main-city">{{deliveryItem.deliverAddress.city}}</div>
                             <div class="status" data-open={{deliveryItem.id}}>{{deliveryItem.status}}</div>
                             <button class='check-btn'  data-deliver={{deliveryItem.id}} >check order</button>
                         </div>
+                        {% endif %}
                         {% endfor %}
                     </div>
 

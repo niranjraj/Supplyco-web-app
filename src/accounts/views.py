@@ -44,12 +44,11 @@ def sign(request):
             else:
                 try:
                     passUser = User.objects.get(email=email)
+                    answer = passUser.check_password(password)
+                    if(not answer):
+                        usererror = "Invalid Password"
                 except User.DoesNotExist:
                     usererror = "Enter a valid Email"
-                    passUser = None
-                answer = passUser.check_password(password)
-                if(not answer):
-                    usererror = "Invalid Password"
 
     context = {'form2': form2, 'usererror': usererror}
     return render(request, 'accounts/sign.html', context)

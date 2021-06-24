@@ -38,8 +38,7 @@ The application is built with:
     ### Main page
     ![store-page](gif1.gif)
     
-    ### Delivery page
-    ![delivery-page](gif2.gif)
+    [supplycokerala](http://supplycokerala.herokuapp.com/)
 
 
   

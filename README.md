@@ -15,7 +15,7 @@ an online platform that allows the government owned companies to provide commodi
 
 
 ## Issues
-  The current repo is not complete and is only an early state of the project.It may contain some bugs.However the completed version is deployed  through heroku and provided as a link above.This repo is meant as a reference to it.
+  The current repo is not complete and is only an early state of the project.It may contain some bugs.However the completed version is deployed  through heroku and provided as a link above.This repo is meant as a reference to the private repo that is deployed.
   
 
   ## Login page

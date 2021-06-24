@@ -1,6 +1,9 @@
 # supplycokerala
 ![screenshotmain](screenshotmain.png)
 
+# Link
+   [## supplycokerala](http://supplycokerala.herokuapp.com/)
+
 
 
 an online platform that allows the government owned companies to provide commodities to the  kerala community at the time of covid 19 crisis.
@@ -9,6 +12,11 @@ an online platform that allows the government owned companies to provide commodi
 .User friendly webpage with responsive and aesthetic design.
 .Also provides delivery page for staff to maintain order.
 .Admin page which can be used to manage delivery staff,customers and products available.
+
+
+## Issues
+  The current repo is not complete and is only an early state of the project.It may contain some bugs.However the completed version is deployed  through heroku and provided as a link above.This repo is meant as a reference to it.
+  
 
   ## Login page
   ![screenshot0](screenshot0.png)
@@ -38,9 +46,6 @@ The application is built with:
     ### Main page
     ![store-page](gif1.gif)
     
-    [supplycokerala](http://supplycokerala.herokuapp.com/)
-
-
   
 ## **NOTE :**
 This is site is a demonstration of my work (an eCommerce Site) & is not ready to shop online right now.

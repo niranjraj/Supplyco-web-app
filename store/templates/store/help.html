@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <title>Help me</title>
+    <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="main-content">
+                <form action="" class="form1 forms" method="POST">
+                    {%csrf_token%}
+                    <h2 class="title">Help me</h2>
+                    <div class="input-field ">  
+                        <i class="fas fa-user"></i> 
+                        {{form.name}}
+                    </div>
+                    <div class="input-field ">
+                        <i class="fas fa-envelope"></i>
+                        {{form.email}}
+                    </div>
+                    <div class="input-field ">
+                        <i class="fas fa-phone-alt"></i>
+                        {{form.phoneNumber}}
+                    </div>
+                    <div class="input-field ">
+                        <i class="fas fa-question"></i>
+                        {{form.question}}
+                    </div>
+                    <div class="input-field  text-input">
+                        <i class="fas fa-edit"></i>
+                        {{form.description}}
+                    </div>
+                    <input type="submit" value="help" class="btn solid">
+                    <p class="info-text">give more info</p>
+                </form>
+
+                <div class="form2 forms">
+                    <h2 class="title">Contact us</h2>
+                    <div class="contact-info">
+                        <div class="content">
+                            <h3>The Kerala State Civil Supplies Corporation.</h3>
+                            <ul>
+                                <li>The Kerala State Civil Supplies Corporation Ltd</li>
+                                <li>Maveli Road, Gandhi Nagar, Kochi-682 020</li>
+                                <li>Phone :0484 2206775, 2206795</li>
+                                <li>E-Mail:info@supplycomail.com,Website:www.supplycokerala.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Need Help?</h3>
+                    <p>Welcome to the supplyco Help form.Post your question and issues,regardless of the time our staff will contact you.</p>
+                    <button class="btn transparent" id="panel-btn1">Contact us</button>
+                </div>
+                <img src="{% static 'images/question.svg' %}" alt="" class="image">
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Contact Us</h3>
+                    <p>We are more than happy to provide you with support</p>
+                    <button class="btn transparent" id="panel-btn2">Help me</button>
+                </div>
+                <img src="assets/forgot.svg" alt="" class="image">
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/form.js' %}"></script>
+    <script src="{% static 'js/textarea.js' %}"></script>
+  
+    
+</body>
+</html>

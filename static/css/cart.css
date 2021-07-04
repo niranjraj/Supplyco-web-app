@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+
+  color: #444;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+}
+a {
+  text-decoration: none;
+}
+
+.cart-items-info {
+  background: linear-gradient(to right, #da22ff, #9733ee);
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  padding: 3em 1em 1em 1em;
+  margin-bottom: 1em;
+  color: #ffffff;
+}
+
+.box-element {
+  margin: 1em 0;
+  padding: 1em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn {
+  padding: 1em;
+  background: linear-gradient(to right, #da22ff, #9733ee);
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 500;
+}
+.btn:hover {
+  background: linear-gradient(to right, #e251ff, #aa58f1);
+}
+
+.cart-content {
+  margin: 3em 0;
+  width: 100%;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-around;
+  padding: 1em;
+}
+.img-wrapper {
+  background: #f5f5f5;
+  padding: 2em;
+  border-radius: 20px;
+}
+.img-wrapper img {
+  width: 100px;
+  height: 100px;
+}
+
+.cart-info-wrapper {
+  padding: 0.5em;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-info {
+  margin: 0 auto;
+}
+
+.item-info p {
+  color: #505050;
+  text-transform: capitalize;
+  padding: 0.4em 0;
+  font-weight: 500;
+}
+.item-info h5 {
+  font-size: 1.3rem;
+  padding-bottom: 0.5em;
+  text-align: center;
+}
+.item-quantity {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.arrow-wrapper {
+  background: #f5f5f5;
+  padding: 0.3em 0.9em;
+  border-radius: 8px;
+}
+.arrow-wrapper i {
+  color: #505050;
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
+.cart-total-wrapper {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.3rem;
+}
+.cart-total-wrapper p {
+  font-weight: 700;
+  padding: 1.5em 0;
+}
+.cart-total {
+  border-top: 1px solid #bebabe;
+  border-bottom: 1px solid #bebabe;
+  padding: 1.5em 0;
+  width: 200px;
+  text-align: center;
+}
+
+@media (min-width: 500px) {
+  .cart-items-info {
+    text-align: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .img-wrapper {
+    padding: 3em;
+  }
+  .img-wrapper img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .cart-info-wrapper {
+    justify-content: space-evenly;
+  }
+}

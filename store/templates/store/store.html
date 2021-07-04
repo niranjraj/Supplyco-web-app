@@ -1,0 +1,158 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <title>Supplycokerala</title>
+</head>
+<body>
+    <div class="body-container" >
+        <div class="header-wrapper">
+            <header >
+                <div class="nav-logo">
+                   <h1 class="logo">Supplyco</h1>
+                </div>
+                <nav class="drawer">
+                    <ul class="nav-list">
+                        <li><a href="">Home</a></li>
+                        <li><a href="{% url 'delivery' %}">Delivery</a></li>
+                        <li><a href="{% url 'help' %}">Help</a></li>
+                        <li>
+                            <div class="menu-btn">
+                                <a href="{% url 'sign' %}" class="login-btn">Login</a>
+                            
+                            </div>  
+                        </li>  
+                    </ul>
+                </nav>
+                <div class="nav-btn">
+                    <div class="nav-btn_burger"></div>
+                </div>
+            </header>
+            <section class="carousel-container">
+                   <div class="hero">
+                    <div  class="hero-left">
+                        <h1>Supplyco Online Store</h1>
+                        <p>Everywhere you need us to be.</p>
+                    </div>
+                    <div class="hero-right">
+                        <img class="hero-img"src="{% static 'images/shopping2.svg' %}" alt="">
+                    </div>
+                   </div>
+            </section>
+        </div>
+        <div class="primary-divider">
+            <svg viewBox="0 0 500 500" 
+            preserveAspectRatio="xMinYMin meet"> 
+              
+            <path d="M0, 50 C200, 150 350, 
+                0 500, 50 L500, 00 L0, 0 Z" 
+                style="stroke:none; fill:url('#myGradient')"> 
+            </path> 
+            <defs>
+                <linearGradient id="myGradient" gradientTransform="rotate(0)">
+                  <stop offset="0%"  stop-color="#DA22FF" />
+                  <stop offset="100%" stop-color="#9733EE" />
+                </linearGradient>
+              </defs>
+        </svg> 
+        </div>
+        <div class="container"> 
+            <section class="categories">
+                <div class="card-text">
+                    <h2>What we provide</h2>
+                </div>
+                <div class="col">
+                    <div class="card card-1" >
+                        <h3>Our Products</h3>
+                        <p>Tea, Coffee, Atta, Chilly Powder etc.</p>
+                    </div>
+                    <div class="card card-2 ">
+                        <h3>Delivery Service</h3>
+                        <p>Fast delivery Service</p>
+                    </div>
+                    <div class="card card-3">
+                        <h3>Paddy Procurement</h3>
+                        <p>www.Supplycopaddy.in.</p>
+                    </div>
+                    <div  class="card card-4">
+                        <h3>Careers</h3>
+                        <p>Careers and job opportunities in Supplyco.</p>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="info-card" >
+                <div class="info"> 
+                    <div class="detail-info-1">
+                        <div class="info-img-wrapper">
+                            <img class="info-img" src="{% static 'images/cmd6.jpg' %}" alt="chairman">
+                        </div>  
+                        <div class="details">
+                            <h3>Chairman and Managing Director's Message</h3>
+                            <ul>
+                                <li>Ali Asgar Pasha P M IAS</li>
+                                <li>Chairman and Managing Director</li>
+                                <li>0484-2206776, cmd@supplycomail.com</li>
+                            </ul>
+                        </div>
+                    </div>
+           
+                   
+                </div>
+            </section>
+          
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="social-icons">
+                    <ul>
+                        <li>
+                            <div class="social-btn">
+                                <div class="icon"><i class="fab fa-facebook-f"></i></div>
+                                <span>Facebook</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="social-btn">
+                                <div class="icon"><i class="fab fa-instagram"></i></div>
+                                <span>Instagram</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="social-btn">
+                                <div class="icon"><i class="fab fa-twitter"></i></div>
+                                <span>Twitter</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-us">
+                    <h3>Contact us</h3>
+                    <ul>
+                        <li>The Kerala State Civil Supplies Corporation Ltd</li>
+                        <li>Maveli Road, Gandhi Nagar, Kochi-682 020</li>
+                        <li>Phone :0484 2206775, 2206795</li>
+                        <li>E-Mail:info@supplycomail.com,Website:www.supplycokerala.com</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/observer.js' %}"></script>
+   
+
+
+</body>
+</html>

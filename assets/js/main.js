@@ -1,0 +1,28 @@
+const navBtn=document.querySelector('.nav-btn');
+const drawer=document.querySelector('.drawer');
+
+let navOpen=false;
+
+navBtn.addEventListener('click',()=>{
+    if(!navOpen){
+        navBtn.classList.add('open');
+        drawer.classList.add('open');
+     
+        navOpen=true;
+    } else{
+        navBtn.classList.remove('open');
+        drawer.classList.remove('open');
+    
+        navOpen=false;
+    }
+})
+
+
+
+
+window.addEventListener("scroll",function(){
+    var header=document.querySelector("header");
+    header.classList.toggle("sticky",window.scrollY >0);
+})
+
+    

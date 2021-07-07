@@ -5,16 +5,47 @@
 
 an online platform that allows the government owned companies to provide commodities to the  kerala community at the time of covid 19 crisis.
 
+
+
+## Key Features
+
 .The app allows user to create an account with the aadhar card provided by the government.
 .User friendly webpage with responsive and aesthetic design.
 .Also provides delivery page for staff to maintain order.
 .Admin page which can be used to manage delivery staff,customers and products available.
 
-  ## Login page
-  ![screenshot0](screenshot0.png)
-  ## products page
-  ![screenshot1](screenshotmain2.png)
-  ![screenshot1.2](screenshot1.png)
+
+## Demo
+
+  ### Main page
+   [store-page](gif1.gif)
+   
+## How To Use 
+   To clone  and run this application you will need [Git](https://git-scm.com/) ,[Python](https://www.python.org/downloads/) and [Pip](https://pypi.org/project/pip/) installed on your computer.Use the command line to run:
+   
+```bash
+#Clone this repo
+$ git clone https://github.com/NiranjRajesh/Supplyco-web-app.git
+
+#Cd into the repo
+$ cd Supplyco-web-app
+
+#Optional install venv (to setup a virtual environment)
+$ python3 -m pip install --user virtualenv
+
+#Create the virtual environment( replace env with desired name) a new folder will be created
+$ python3 -m venv env
+
+#Activate the virtual environment
+$ source env/bin/activate
+
+#Install the dependencies
+$ pip install -r requirements.txt
+
+#Start the Development Server
+$ python manage.py runserver
+
+```
 
 
 ## Technology
@@ -30,13 +61,8 @@ The application is built with:
 - Git (version control)
 - AWS S3(cloud storage)
   
-  ## Cart page
-  ![screenshot2](screenshot2.png)
-  
-  ## Demo
-  
-    ### Main page
-    ![store-page](gif1.gif)
+
+
     
     ### Delivery page
     ![delivery-page](gif2.gif)
@@ -49,8 +75,6 @@ It is made for purpose of mini project in my college.
 some of services like site analytics, traffic tracking, api services are added later (On Demand).
 
 
-## Checkout page
-![screenshot3](screenshot3.png)
 
 
 

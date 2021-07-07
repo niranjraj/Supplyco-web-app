@@ -20,7 +20,7 @@ an online platform that allows the government owned companies to provide commodi
 ## Demo
 
   ### Main page
-   [store-page](gif1.gif)
+  ![store-page](gif1.gif)
    
 ## How To Use 
    To clone  and run this application you will need [Git](https://git-scm.com/) ,[Python](https://www.python.org/downloads/) and [Pip](https://pypi.org/project/pip/) installed on your computer.Use the command line to run:

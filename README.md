@@ -1,4 +1,4 @@
-# supplycokerala https://img.shields.io/badge/Django-3.1.3-blue
+# supplycokerala   <img src="https://img.shields.io/badge/Django-3.1.3-blue" /></a>
 ![screenshotmain](screenshotmain.png)
 
 

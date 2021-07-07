@@ -1,4 +1,6 @@
-# supplycokerala   <img src="https://img.shields.io/badge/Django-3.1.3-blue" /></a>
+# supplycokerala 
+<img src="https://img.shields.io/badge/Django-3.1.3-blue" />
+<img src="https://img.shields.io/pypi/pyversions/django" />
 ![screenshotmain](screenshotmain.png)
 
 

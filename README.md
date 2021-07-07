@@ -2,6 +2,8 @@
 ![screenshotmain](screenshotmain.png)
 
 
+##Link for the demo
+[SupplycoKerala](http://supplycokerala.herokuapp.com/)
 
 an online platform that allows the government owned companies to provide commodities to the  kerala community at the time of covid 19 crisis.
 
@@ -69,10 +71,11 @@ The application is built with:
 
 
   
-## **NOTE :**
+## **NOTE FROM THE  AUTHOR:**
 This is site is a demonstration of my work (an eCommerce Site) & is not ready to shop online right now.
 It is made for purpose of mini project in my college.
-some of services like site analytics, traffic tracking, api services are added later (On Demand).
+As it was a learning experience for my path towards web development... 
+Some of services like site analytics, traffic tracking, api services are not added.
 
 
 

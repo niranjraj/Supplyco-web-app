@@ -2,8 +2,8 @@
 ![screenshotmain](screenshotmain.png)
 
 
-##Link for the demo
-[SupplycoKerala](http://supplycokerala.herokuapp.com/)
+## Link for the demo
+### [SupplycoKerala](http://supplycokerala.herokuapp.com/)
 
 an online platform that allows the government owned companies to provide commodities to the  kerala community at the time of covid 19 crisis.
 
